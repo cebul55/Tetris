@@ -4,6 +4,7 @@ import java.util.*;
 
 /**
  * Super class of every Tetris shape in the game
+ * @param blockSet      przechowuje bloki skladajace sie na aktualny ksztalt tetrominoe
  */
 
 public class TetrisShape {
@@ -64,6 +65,10 @@ public class TetrisShape {
     {
         this.blockSet.remove(number);
     }
+    public void doRotate()
+    {
+
+    }
     public boolean isEqual(TetrisShape shape)
     {
         int i = 0;
@@ -81,5 +86,6 @@ public class TetrisShape {
         }
         return equal;
     }
+    //TODO move down move left move rigth
 }
 
