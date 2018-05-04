@@ -9,8 +9,7 @@ package TetrisModel;
  *      I
  *      I
  */
-
-public class TetrisShape_I extends TetrisShape {
+ class TetrisShape_I extends TetrisShape {
     private int x_pos = (TetrisModel.getWIDTH()-4) / 2;
     private int y_pos = 0;
     private int texture = 0;

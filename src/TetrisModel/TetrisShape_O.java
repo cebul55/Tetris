@@ -1,6 +1,6 @@
 package TetrisModel;
 
-public class TetrisShape_O extends TetrisShape {
+ class TetrisShape_O extends TetrisShape {
     TetrisShape_O()
     {
         super(  (TetrisModel.getWIDTH()-2)/2,       0,
