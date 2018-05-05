@@ -87,6 +87,5 @@ public class TetrisShape {
         }
         return equal;
     }
-    //TODO move down move left move rigth
 }
 
