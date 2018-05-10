@@ -75,6 +75,10 @@ public class TetrisShape {
         int i = 0;
         boolean equal = true;
         //TODO check if isEqual works correctly
+        if(shape == null){
+            equal = false;
+            return equal;
+        }
         while(i < blockSet.size())
         {
             if(blockSet.get(i).getPositionX() != shape.getBlock(i).getPositionX()
