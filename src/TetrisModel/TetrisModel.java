@@ -18,6 +18,7 @@ public class TetrisModel {
     private static int RIGHT_DIRECTION = 3;
 
     private RandomShapeGenerator shapeGenerator;
+    private LineCleaner lineCleaner;
     private int tetrisScore;
     private static boolean[][] tetrisBoard;
     private ArrayList<TetrisShape> shapesOnBoard;
@@ -28,6 +29,7 @@ public class TetrisModel {
 
     public TetrisModel()
     {
+        lineCleaner = new LineCleaner(HEIGHT, WIDTH);
         shapeGenerator = new RandomShapeGenerator();
         shapesOnBoard = new ArrayList<>();
         tetrisBoard = new boolean[HEIGHT][WIDTH];
@@ -49,25 +51,16 @@ public class TetrisModel {
 
         this.moveShapeDown();
 
-
-
-        for( int i = 0 ; i < HEIGHT; i++)
-        {
-            for(int j = 0 ; j < WIDTH ; j++)
-            {
-                if(!tetrisBoard[i][j])
-                {
-                    System.out.print("0 ");
-                }
-                else
-                {
-                    System.out.print("1 ");
-                }
-            }
-            System.out.println();
-        }
+        printBoard();
 
     }
+
+    public static boolean[][] getTetrisBoard()
+    {
+        return tetrisBoard;
+    }
+
+
     private void setNextShape(TetrisShape shape)
     {
         nextShape = shape;
@@ -263,5 +256,33 @@ public class TetrisModel {
         }
 
         return doMove;
+    }
+
+    void settleShape()
+    {
+        lineCleaner.shapeIsSettled( this.currentShape.getBlockY(0),
+                                    this.currentShape.getBlockY(1),
+                                    this.currentShape.getBlockY(2),
+                                    this.currentShape.getBlockY(3));
+
+    }
+
+    private void printBoard()
+    {
+        for( int i = 0 ; i < HEIGHT; i++)
+        {
+            for(int j = 0 ; j < WIDTH ; j++)
+            {
+                if(!tetrisBoard[i][j])
+                {
+                    System.out.print("0 ");
+                }
+                else
+                {
+                    System.out.print("1 ");
+                }
+            }
+            System.out.println();
+        }
     }
 }
