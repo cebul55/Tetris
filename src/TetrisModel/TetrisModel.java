@@ -29,7 +29,7 @@ public class TetrisModel {
 
     public TetrisModel()
     {
-        lineCleaner = new LineCleaner(HEIGHT, WIDTH);
+        lineCleaner = new LineCleaner(HEIGHT, WIDTH,this);
         shapeGenerator = new RandomShapeGenerator();
         shapesOnBoard = new ArrayList<>();
         tetrisBoard = new boolean[HEIGHT][WIDTH];
@@ -49,13 +49,15 @@ public class TetrisModel {
         shape = shapeGenerator.getTetrisShape();
         this.addShape(shape);
 
-        this.moveShapeDown();
-
         printBoard();
-
     }
 
-    public static boolean[][] getTetrisBoard()
+    void addToScore(int score)
+    {
+        tetrisScore += score;
+    }
+
+    public boolean[][] getTetrisBoard()
     {
         return tetrisBoard;
     }
@@ -115,6 +117,7 @@ public class TetrisModel {
         if(!checkIfCanMove(DOWN_DIRECTION))
         {
             System.out.println("Nie możesz wyjść w dół po za krawędź, Dodaję nowy element");
+            this.settleShape();
             this.addShape(nextShape);
             return;
         }

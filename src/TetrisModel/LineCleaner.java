@@ -12,17 +12,18 @@ import java.util.ArrayList;
 class LineCleaner {
     private static int numberOfRows;
     private static int numberOfColumns;
+    private TetrisModel tetrisModel;
 
     private int[] numberOfBlocksInTheRow;
 
-    public LineCleaner(int rows, int columns)
+    public LineCleaner(int rows, int columns, TetrisModel model)
     {
         numberOfRows = rows;
         numberOfColumns = columns;
+        tetrisModel = model;
 
-        //array's size is rows + 1 in order to use row numbers; numberOfBlockInTheRow[0] is not used
-        numberOfBlocksInTheRow = new int[rows + 1];
-        for(int i = 0 ; i <= rows; i++)
+        numberOfBlocksInTheRow = new int[rows];
+        for(int i = 0 ; i < rows; i++)
         {
             numberOfBlocksInTheRow[i] = 0;
         }
@@ -46,10 +47,22 @@ class LineCleaner {
         return numberOfBlocksInTheRow[numberofRow] == numberOfColumns;
     }
 
+    void setNumberOfBlocksInCleanedRowToZero(int row)
+    {
+        numberOfBlocksInTheRow[row] = 0;
+    }
+
+    int getNumberOfCleanedBlocks(int row)
+    {
+        return numberOfBlocksInTheRow[row];
+    }
+
     void cleanLine(int numberOfCleanedRow , ArrayList<TetrisShape> shapesOnTheBoard)
     {
         if(checkIfRowHasToBeCleaned(numberOfCleanedRow) )
         {
+            tetrisModel.addToScore(this.getNumberOfCleanedBlocks(numberOfCleanedRow));
+            setNumberOfBlocksInCleanedRowToZero(numberOfCleanedRow);
             for (TetrisShape shape : shapesOnTheBoard)
             {
                 for (int i = 0 ; i < shape.getNumberOfBlocks() ; i++)
@@ -57,7 +70,6 @@ class LineCleaner {
                     if(shape.getBlockY(i) == numberOfCleanedRow)
                     {
                         shape.removeBlock(i);
-
                         //restarting loop in order to properly remove every block
                         i = 0;
                     }
@@ -66,20 +78,64 @@ class LineCleaner {
                     removeEmptyShapeFromArray( shapesOnTheBoard ,shapesOnTheBoard.indexOf(shape) );
 
             }
+            moveEverythingDown(numberOfCleanedRow, shapesOnTheBoard);
         }
     }
 
-    void moveEverythingDown( int numberOfCleanedRow)
+    void moveEverythingDown( int numberOfCleanedRow, ArrayList<TetrisShape> shapesOnTheBoard)
     {
+        int currentRow;
+        for( TetrisShape shape : shapesOnTheBoard )
+        {
+            for(int i = 0 ; i < shape.getNumberOfBlocks(); i++)
+            {
+                currentRow = shape.getBlockY(i);
+                if(currentRow < numberOfCleanedRow)
+                {
+                    shape.setBlockY(shape.getBlockY(i)+1 , i);
 
+                    changeStateOfBlocksInTheRow(currentRow);
+                }
+            }
+        }
+        changeStateOfTetrisBoard( numberOfCleanedRow , tetrisModel.getTetrisBoard() );
     }
 
+    void changeStateOfBlocksInTheRow(int row)
+    {
+        numberOfBlocksInTheRow[row]--;
+        numberOfBlocksInTheRow[row + 1]++;
+    }
 
+    void changeStateOfTetrisBoard(int row, boolean[][] tetrisBoard)
+    {
+        //update boolean[][] TetrisBoard
+
+        for(int i = 0 ; i < numberOfColumns ; i++)
+        {
+            tetrisBoard[row][i] =false;
+        }
+        for(int tmpRow = row - 1 ; tmpRow >= 0; tmpRow--)
+        {
+            for(int column = 0; column < numberOfColumns; column++)
+            {
+                tetrisBoard[tmpRow + 1][column]=tetrisBoard[tmpRow][column];
+                tetrisBoard[tmpRow][column] = false;
+            }
+        }
+    }
 
     void removeEmptyShapeFromArray(ArrayList<TetrisShape> shapesOnTheBoard, int index )
     {
         shapesOnTheBoard.remove(index);
     }
 
+    void printStateOfLines()
+    {
+        for(int i = 0; i < numberOfRows; i++)
+        {
+            System.out.println(i + " " + numberOfBlocksInTheRow[i] );
+        }
+    }
     //TODO work on LineCleaner
 }
