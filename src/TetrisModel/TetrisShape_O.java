@@ -10,4 +10,10 @@ package TetrisModel;
                 0
         );
     }
+
+     @Override
+     public void rotateLeft() {}
+
+     @Override
+     public void rotateRight() {}
 }

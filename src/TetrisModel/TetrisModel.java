@@ -49,7 +49,9 @@ public class TetrisModel {
         shape = shapeGenerator.getTetrisShape();
         this.addShape(shape);
 
+        settleShape();
         printBoard();
+
     }
 
     void addToScore(int score)

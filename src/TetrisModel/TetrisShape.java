@@ -3,12 +3,11 @@ package TetrisModel;
 import java.util.*;
 
 /**
- * Super class of every Tetris shape in the game
+ * abstract class, every Tetris shape in the game inherits after this class
  * @param blockSet      przechowuje bloki skladajace sie na aktualny ksztalt tetrominoe
  */
 
-public class TetrisShape {
-    //TODO implement shape , skladajacy sie z blokwo
+public abstract class TetrisShape implements TetrisShapeInterface {
     private ArrayList<Block> blockSet;
 
     TetrisShape(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, int texture)
@@ -26,50 +25,75 @@ public class TetrisShape {
         blockSet.get(number).setPositionX(x);
     }
 
+
     void setBlockY(int y, int number)
     {
         //catch exception number nalezy od 0 do 3
         blockSet.get(number).setPositionY(y);
     }
+
+
     void setBlockXY(int x, int y, int number)
     {
         //catch exception number nalezy od 0 do 3
         blockSet.get(number).setPositionXY(x, y);
     }
 
+
     void setBlockTexture(int texture, int number)
     {
         //catch exception number nalezy od 0 do 3
         blockSet.get(number).setTextureImage(texture);
     }
+
+
     int getBlockX(int number)
     {
         return blockSet.get(number).getPositionX();
     }
+
+
     int getBlockY(int number)
     {
         return blockSet.get(number).getPositionY();
     }
+
+
     int getBlockTexture(int number)
     {
         return blockSet.get(number).getTextureImage();
     }
+
+
     public int getNumberOfBlocks()
     {
         return this.blockSet.size();
     }
-    public Block getBlock(int number)
+
+
+    Block getBlock(int number)
     {
         return this.blockSet.get(number);
     }
+
+
     public void removeBlock(int number)
     {
         this.blockSet.remove(number);
     }
-    public void doRotate()
-    {
 
+    @Override
+    public void rotateLeft()
+    {
+        System.out.println("TODO rotate");
     }
+
+    @Override
+    public void rotateRight()
+    {
+        System.out.println("TODO rotate");
+    }
+
     public boolean isEqual(TetrisShape shape)
     {
         int i = 0;

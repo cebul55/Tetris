@@ -10,4 +10,16 @@ package TetrisModel;
                 0
         );
     }
+
+     @Override
+     public void rotateLeft()
+     {
+         System.out.println("TODO rotate");
+     }
+
+     @Override
+     public void rotateRight()
+     {
+         System.out.println("TODO rotate");
+     }
 }
