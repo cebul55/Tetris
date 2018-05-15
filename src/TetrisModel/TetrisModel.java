@@ -12,10 +12,11 @@ import java.util.ArrayList;
 public class TetrisModel {
     private static int WIDTH = 10;
     private static int HEIGHT = 20;
-    private static int NO_DIRECTION = 0;
-    private static int DOWN_DIRECTION = 1;
-    private static int LEFT_DIRECTION = 2;
-    private static int RIGHT_DIRECTION = 3;
+    private static final int NO_DIRECTION = 0;
+    private static final int DOWN_DIRECTION = 1;
+    private static final int LEFT_DIRECTION = 2;
+    private static final int RIGHT_DIRECTION = 3;
+    private static final int ROTATE_DIRECTION = 4;
 
     private RandomShapeGenerator shapeGenerator;
     private LineCleaner lineCleaner;
@@ -46,8 +47,10 @@ public class TetrisModel {
         //not elemeent of declaration, just test of different shapes
 
         TetrisShape shape;
-        shape = shapeGenerator.getTetrisShape();
+        //shape = shapeGenerator.getTetrisShape();
+        shape = new TetrisShape_I();
         this.addShape(shape);
+
 
         settleShape();
         printBoard();
@@ -108,66 +111,57 @@ public class TetrisModel {
             return;
         }
 
-        for(int i = 0 ; i < 4 ; i++)
-        {
-            tetrisBoard[shape.getBlockY(i)][shape.getBlockX(i)] = true;
-        }
+        this.setVisible();
     }
 
     public void moveShapeDown() {
         //checking if shape can move down
+        this.setInvisible();
         if(!checkIfCanMove(DOWN_DIRECTION))
         {
             System.out.println("Nie możesz wyjść w dół po za krawędź, Dodaję nowy element");
+
+            //wywolanie funkcji settleshape ustawia ksztalt na tablicy na stale
             this.settleShape();
+            //dodanie kolejnego ksztaltu
             this.addShape(nextShape);
             return;
         }
 
-        //Setting current positions on board to false
-        for (int i = 0; i < 4; i++) {
-            tetrisBoard[this.currentShape.getBlockY(i)][this.currentShape.getBlockX(i)] = false;
-        }
+
         //setting new position for shape
         for (int i = 0; i < 4; i++) {
             this.currentShape.setBlockY(this.currentShape.getBlockY(i) + 1, i);
         }
         //informing board about new position
-        for (int i = 0; i < 4; i++) {
-            tetrisBoard[currentShape.getBlockY(i)][currentShape.getBlockX(i)] = true;
-        }
+        this.setVisible();
     }
 
     public void moveShapeRight()
     {
         //checking if shape can move right
+        this.setInvisible();
         if(!checkIfCanMove(RIGHT_DIRECTION))
         {
             System.out.println("Nie możesz wyjść w prawo po za krawędź");
             return;
         }
 
-        //Setting current positions on board to false
-        for(int i = 0 ; i < 4 ; i++)
-        {
-            tetrisBoard[this.currentShape.getBlockY(i)][this.currentShape.getBlockX(i)] = false;
-        }
+
         //setting new position for shape
         for(int i = 0 ; i < 4 ; i++)
         {
             this.currentShape.setBlockX(this.currentShape.getBlockX(i)+1,i);
         }
         //informing board about new position
-        for(int i = 0 ; i < 4 ; i++)
-        {
-            tetrisBoard[currentShape.getBlockY(i)][currentShape.getBlockX(i)] = true;
-        }
+        this.setVisible();
 
     }
 
     public void moveShapeLeft()
     {
         //checking if shape can move left
+        this.setInvisible();
         if(!checkIfCanMove(LEFT_DIRECTION))
         {
             System.out.println("Nie możesz wyjść w lewo po za krawędź");
@@ -175,21 +169,69 @@ public class TetrisModel {
         }
 
         //Setting current positions on board to false
-        for(int i = 0 ; i < 4 ; i++)
-        {
-            tetrisBoard[this.currentShape.getBlockY(i)][this.currentShape.getBlockX(i)] = false;
-        }
+        //this.setInvisible();
+
         //setting new position for shape
         for(int i = 0 ; i < 4 ; i++)
         {
             this.currentShape.setBlockX(this.currentShape.getBlockX(i)-1,i);
         }
         //informing board about new position
+        this.setVisible();
+
+    }
+    private void setVisible()
+    {
         for(int i = 0 ; i < 4 ; i++)
         {
-            tetrisBoard[currentShape.getBlockY(i)][currentShape.getBlockX(i)] = true;
+            tetrisBoard[this.currentShape.getBlockY(i)][this.currentShape.getBlockX(i)] = true;
+        }
+    }
+
+    private void setInvisible()
+    {
+        for(int i = 0 ; i < 4 ; i++)
+        {
+            tetrisBoard[this.currentShape.getBlockY(i)][this.currentShape.getBlockX(i)] = false;
+        }
+    }
+
+    void rotateShapeRight()
+    {
+        this.setInvisible();
+        currentShape.rotateRight();
+
+        if( !checkIfCanMove(ROTATE_DIRECTION) )
+        {
+            System.out.println("Error cannot rotate");
+
+            currentShape.rotateLeft();
+            //cofanie obrotu w razie niepowodzenia
+            this.setVisible();
+            return;
         }
 
+        //informing board about new position
+        this.setVisible();
+    }
+
+    void rotateShapeLeft()
+    {
+        this.setInvisible();
+        currentShape.rotateLeft();
+
+        if( !checkIfCanMove(ROTATE_DIRECTION) )
+        {
+            System.out.println("Error cannot rotate");
+
+            //cofanie obrotu w razie niepowodzenia
+            currentShape.rotateRight();
+            this.setVisible();
+
+            return;
+        }
+        //informing board about new position
+        this.setVisible();
     }
 
     /**
@@ -197,25 +239,22 @@ public class TetrisModel {
      * zwraca true jeżeli nic nie stoi na przeszkodzie, ani nie wychodzi po za granice
      * false jeżeli nie można wykonać ruchu
      * Dostępne kierunki :
-     * 0 - brak ruchu
+     * 0 - brak ruchu //oraz sprawdzanie czy mozna obrocic
      * 1 - ruch w dół
      * 2 - ruch w lewo
      * 3 - ruch w prawo
      */
 
-    boolean checkIfCanMove(int direction)
+    private boolean checkIfCanMove(int direction)
     {
         boolean doMove = true;
 
         //gaszenie aktualnego kształtu żeby można było sprawdzic czy nie nakłada się z innymi elementami lub krawedziami
-        for(int i = 0 ; i < 4 ; i++)
-        {
-            tetrisBoard[this.currentShape.getBlockY(i)][this.currentShape.getBlockX(i)] = false;
-        }
+        //this.setInvisible();
 
         switch (direction)
         {
-            case 0:
+            case NO_DIRECTION:
                 if( nextShape.isEqual(null)){
                     return true;
                 }
@@ -228,7 +267,7 @@ public class TetrisModel {
                     }
                 }
                 break;
-            case 1:
+            case DOWN_DIRECTION:
                 for(int i = 0 ; i < 4 ; i++)
                 {
                     if(this.currentShape.getBlockY(i)+1 == HEIGHT
@@ -237,7 +276,7 @@ public class TetrisModel {
 
                 }
                 break;
-            case 2:
+            case LEFT_DIRECTION:
                 for(int i = 0; i < 4 ; i++)
                 {
                     if(this.currentShape.getBlockX(i) - 1 < 0
@@ -245,7 +284,7 @@ public class TetrisModel {
                         doMove = false;
                 }
                 break;
-            case 3:
+            case RIGHT_DIRECTION:
                 for( int i = 0 ; i < 4 ; i++)
                 {
                     if(this.currentShape.getBlockX(i) + 1 == WIDTH
@@ -253,17 +292,29 @@ public class TetrisModel {
                         doMove = false;
                 }
                 break;
+            case ROTATE_DIRECTION:
+                //sprawdzenie czy nie wyjdzie po za tablice oraz czy nie najedzie na jakis ksztalt
+                for( int i = 0 ; i < 4 ; i++)
+                {
+                    if(this.currentShape.getBlockY(i) >= HEIGHT || this.currentShape.getBlockX(i) >= WIDTH
+                            || this.currentShape.getBlockY(i) < 0 || this.currentShape.getBlockX(i) < 0) {
+                        doMove = false;
+                        return doMove;
+                    }
+                }
+                for(int i = 0 ; i < 4 ; i++)
+                {
+                    if(tetrisBoard[this.nextShape.getBlockY(i)][this.nextShape.getBlockX(i)])
+                        doMove = false;
+                }
         }
 
-        for(int i = 0 ; i < 4 ; i++)
-        {
-            tetrisBoard[this.currentShape.getBlockY(i)][this.currentShape.getBlockX(i)] = true;
-        }
+        //this.setVisible();
 
         return doMove;
     }
 
-    void settleShape()
+    private void settleShape()
     {
         lineCleaner.shapeIsSettled( this.currentShape.getBlockY(0),
                                     this.currentShape.getBlockY(1),
