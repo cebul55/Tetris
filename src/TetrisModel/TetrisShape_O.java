@@ -12,8 +12,43 @@ package TetrisModel;
     }
 
      @Override
-     public void rotateLeft() {}
+     public void rotateLeft()
+     {
+         switch (state)
+         {
+             case UP:
+                 state = LEFT;
+                 break;
+             case RIGHT:
+                 state = UP;
+                 break;
+             case DOWN:
+                 state = RIGHT;
+                 break;
+             case LEFT:
+                 state = DOWN;
+                 break;
+         }
+     }
 
      @Override
-     public void rotateRight() {}
+     public void rotateRight()
+     {
+         switch (state)
+         {
+             case UP:
+                 state = RIGHT;
+                 break;
+             case RIGHT:
+                 state = DOWN;
+                 break;
+             case DOWN:
+                 state = LEFT;
+                 break;
+             case LEFT:
+                 state = UP;
+                 break;
+         }
+         //this.rotateLeft();
+     }
 }

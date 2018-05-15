@@ -26,7 +26,6 @@ public class TetrisModel {
     private TetrisShape currentShape;
     private TetrisShape nextShape;
 
-    //TODO przechowywanie aktualnego oraz NASTEPNEGO ksztaltu
 
     public TetrisModel()
     {
@@ -48,8 +47,10 @@ public class TetrisModel {
 
         TetrisShape shape;
         //shape = shapeGenerator.getTetrisShape();
-        shape = new TetrisShape_I();
+        shape = new TetrisShape_J();
         this.addShape(shape);
+
+
 
 
         settleShape();

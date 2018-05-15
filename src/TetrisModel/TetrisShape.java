@@ -133,7 +133,6 @@ public abstract class TetrisShape implements TetrisShapeInterface {
     {
         int i = 0;
         boolean equal = true;
-        //TODO check if isEqual works correctly
         if(shape == null){
             equal = false;
             return equal;
