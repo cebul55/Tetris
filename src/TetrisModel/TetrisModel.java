@@ -51,8 +51,6 @@ public class TetrisModel {
         this.addShape(shape);
 
 
-
-
         settleShape();
         printBoard();
 
