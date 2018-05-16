@@ -98,6 +98,8 @@ public class TetrisController {
                     break;
                 }
             }
+
+            model.printSumInLines();
         }
 
         @Override

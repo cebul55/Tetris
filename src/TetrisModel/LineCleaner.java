@@ -154,5 +154,5 @@ class LineCleaner {
             System.out.println(i + " " + numberOfBlocksInTheRow[i] );
         }
     }
-    //TODO work on LineCleaner
+    //TODO fix counting blocks in line
 }

@@ -369,4 +369,8 @@ public class TetrisModel {
             System.out.println();
         }
     }
+    public void printSumInLines()
+    {
+        lineCleaner.printStateOfLines();
+    }
 }
