@@ -47,8 +47,12 @@ public class TetrisModel {
 
         TetrisShape shape;
         //shape = shapeGenerator.getTetrisShape();
-        shape = new TetrisShape_J();
+        shape = new TetrisShape_T();
         this.addShape(shape);
+
+        this.moveShapeRight();
+        this.rotateShapeRight();
+
 
 
         settleShape();
@@ -121,6 +125,7 @@ public class TetrisModel {
             System.out.println("Nie możesz wyjść w dół po za krawędź, Dodaję nowy element");
 
             //wywolanie funkcji settleshape ustawia ksztalt na tablicy na stale
+            this.setVisible();
             this.settleShape();
             //dodanie kolejnego ksztaltu
             this.addShape(nextShape);
