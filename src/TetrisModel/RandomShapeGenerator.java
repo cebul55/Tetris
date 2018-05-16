@@ -2,7 +2,7 @@ package TetrisModel;
 
 import java.util.Random;
 
-class RandomShapeGenerator {
+public class RandomShapeGenerator {
     private static Random random;
     private static int randomNumber;
 

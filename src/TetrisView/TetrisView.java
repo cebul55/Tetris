@@ -13,6 +13,8 @@ public class TetrisView extends JFrame{
     public static final int HEIGHT = 800;
     public static final int WIDTH = 600;
 
+    private TetrisBoardView boardView;
+
     public TetrisView()
     {
         setTitle("TETRIS");
@@ -21,7 +23,20 @@ public class TetrisView extends JFrame{
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation(dim.width/2 - this.getSize().width/2 , dim.height/2 - this.getSize().height/2);
 
+        boardView = new TetrisBoardView();
+        add(boardView, BorderLayout.CENTER);
+
         this.setVisible(true);
+    }
+
+    public void setBoardColor(int x, int y, int c)
+    {
+        boardView.setColorOfBoard(x,y,c);
+    }
+
+    public void setBoardWhite(int y, int x)
+    {
+        boardView.setWhiteColorOfBoard(y,x);
     }
 }
 

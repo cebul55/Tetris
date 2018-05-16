@@ -10,13 +10,13 @@ package TetrisModel;
 class Block {
     private int positionX;
     private int positionY;
-    private int textureImage;
+    private int colorImage;
 
-    public Block(int posX, int posY, int texture)
+    public Block(int posX, int posY, int color)
     {
         this.positionX = posX;
         this.positionY = posY;
-        this.textureImage = texture;
+        this.colorImage = color;
     }
 
     int getPositionX()
@@ -36,13 +36,13 @@ class Block {
     {
         this.positionY = posY;
     }
-    int getTextureImage()
+    int getColorImage()
     {
-        return textureImage;
+        return colorImage;
     }
-    void setTextureImage(int texture)
+    void setColorImage(int texture)
     {
-        this.textureImage = texture;
+        this.colorImage = texture;
     }
     void setPositionXY(int posX, int posY)
     {

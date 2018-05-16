@@ -40,6 +40,11 @@ class LineCleaner {
         numberOfBlocksInTheRow[y2]++;
         numberOfBlocksInTheRow[y3]++;
         numberOfBlocksInTheRow[y4]++;
+
+        cleanLine(y1, tetrisModel.getShapesOnBoard());
+        cleanLine(y2, tetrisModel.getShapesOnBoard());
+        cleanLine(y3, tetrisModel.getShapesOnBoard());
+        cleanLine(y4, tetrisModel.getShapesOnBoard());
     }
 
     boolean checkIfRowHasToBeCleaned(int numberofRow)
@@ -74,11 +79,23 @@ class LineCleaner {
                         i = 0;
                     }
                 }
-                if(shape.getNumberOfBlocks() == 0)
-                    removeEmptyShapeFromArray( shapesOnTheBoard ,shapesOnTheBoard.indexOf(shape) );
-
+                //TODO change deleting shapes
+//                if(shape.getNumberOfBlocks() == 0)
+//                    removeEmptyShapeFromArray( shapesOnTheBoard ,shapesOnTheBoard.indexOf(shape) );
             }
+            removeEmptyShapes();
             moveEverythingDown(numberOfCleanedRow, shapesOnTheBoard);
+        }
+    }
+    private void removeEmptyShapes()
+    {
+        TetrisShape shape;
+        int size = tetrisModel.getNumberOfShapes();
+        for(int i = size -1 ; i >= 0 ; i--)
+        {
+            shape = tetrisModel.getShapeFromIndex(i);
+            if(shape.getNumberOfBlocks() == 0)
+                removeEmptyShapeFromArray(tetrisModel.getShapesOnBoard() , i);
         }
     }
 

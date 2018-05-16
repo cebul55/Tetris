@@ -66,12 +66,12 @@ public class TetrisBoardView extends JPanel {
         }
     }
 
-    public void setColorOfBoard(int x, int y, int c)
+    void setColorOfBoard(int x, int y, int c)
     {
         tetrisBoard[y][x].setBackground(colorOfShape[c]);
     }
 
-    public void setWhiteColorOfBoard(int y, int x)
+    void setWhiteColorOfBoard(int y, int x)
     {
         tetrisBoard[y][x].setBackground(Color.WHITE);
     }

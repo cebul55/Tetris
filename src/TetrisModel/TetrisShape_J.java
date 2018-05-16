@@ -6,7 +6,7 @@ package TetrisModel;
                 (TetrisModel.getWIDTH()-2)/2 + 1,       1,
                 (TetrisModel.getWIDTH()-2)/2 + 1,       2,
                 (TetrisModel.getWIDTH()-2)/2 ,          2,
-                0
+                1
         );
     }
 

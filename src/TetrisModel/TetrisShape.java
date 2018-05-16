@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * abstract class, every Tetris shape in the game inherits after this class
- * @param blockSet      przechowuje bloki skladajace sie na aktualny ksztalt tetrominoe
+ *        blockSet      przechowuje bloki skladajace sie na aktualny ksztalt tetrominoe
  *        state -> tells about state of shape
  *                      0 - vertically, up
  *                      1 - horizontally, right
@@ -21,13 +21,13 @@ public abstract class TetrisShape implements TetrisShapeInterface {
     private ArrayList<Block> blockSet;
     int state;
 
-    TetrisShape(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, int texture)
+    TetrisShape(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, int color)
     {
         blockSet = new ArrayList<>();
-        blockSet.add(0, new Block(x1, y1, texture));
-        blockSet.add(1, new Block(x2, y2, texture));
-        blockSet.add(2, new Block(x3, y3, texture));
-        blockSet.add(3, new Block(x4, y4, texture));
+        blockSet.add(0, new Block(x1, y1, color));
+        blockSet.add(1, new Block(x2, y2, color));
+        blockSet.add(2, new Block(x3, y3, color));
+        blockSet.add(3, new Block(x4, y4, color));
         state = UP;
     }
 
@@ -52,28 +52,28 @@ public abstract class TetrisShape implements TetrisShapeInterface {
     }
 
 
-    void setBlockTexture(int texture, int number)
+    void setBlockColor(int color, int number)
     {
         //catch exception number nalezy od 0 do 3
-        blockSet.get(number).setTextureImage(texture);
+        blockSet.get(number).setColorImage(color);
     }
 
 
-    int getBlockX(int number)
+    public int getBlockX(int number)
     {
         return blockSet.get(number).getPositionX();
     }
 
 
-    int getBlockY(int number)
+    public int getBlockY(int number)
     {
         return blockSet.get(number).getPositionY();
     }
 
 
-    int getBlockTexture(int number)
+    public int getBlockColor(int number)
     {
-        return blockSet.get(number).getTextureImage();
+        return blockSet.get(number).getColorImage();
     }
 
 
@@ -83,7 +83,7 @@ public abstract class TetrisShape implements TetrisShapeInterface {
     }
 
 
-    Block getBlock(int number)
+    public Block getBlock(int number)
     {
         return this.blockSet.get(number);
     }
@@ -141,7 +141,7 @@ public abstract class TetrisShape implements TetrisShapeInterface {
         {
             if(blockSet.get(i).getPositionX() != shape.getBlock(i).getPositionX()
                     || blockSet.get(i).getPositionY() != shape.getBlock(i).getPositionY()
-                    || blockSet.get(i).getTextureImage() != shape.getBlock(i).getTextureImage())
+                    || blockSet.get(i).getColorImage() != shape.getBlock(i).getColorImage())
             {
                 equal = false;
             }
