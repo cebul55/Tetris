@@ -12,9 +12,10 @@ public class TetrisController {
     private TetrisModel model;
     private TetrisView view;
 
-    public TetrisController(TetrisModel mod , TetrisView vi)
+    public TetrisController()
     {
-        model = mod;
-        view = vi;
+        model = new TetrisModel();
+        view = new TetrisView();
+        view.setVisible(true);
     }
 }
