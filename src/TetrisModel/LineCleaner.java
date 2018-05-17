@@ -111,11 +111,20 @@ class LineCleaner {
                 {
                     shape.setBlockY(shape.getBlockY(i)+1 , i);
 
-                    changeStateOfBlocksInTheRow(currentRow);
+                    //changeStateOfBlocksInTheRow(currentRow);
                 }
             }
         }
+        changeStateOfNumberOfBlocks(numberOfCleanedRow);
         changeStateOfTetrisBoard( numberOfCleanedRow , tetrisModel.getTetrisBoard() );
+    }
+
+    private void changeStateOfNumberOfBlocks(int row)
+    {
+        for( int i = row - 1 ; i >= 0 ; i--)
+        {
+            numberOfBlocksInTheRow[i + 1] = numberOfBlocksInTheRow[i];
+        }
     }
 
     void changeStateOfBlocksInTheRow(int row)

@@ -22,9 +22,12 @@ public class TetrisController {
     public TetrisController()
     {
         model = new TetrisModel();
+
         view = new TetrisView();
         this.view.addKeyListener(new TetrisKeyListener());
         view.setVisible(true);
+
+
 
         twoShapes = new TetrisShape[2];
 
@@ -35,6 +38,7 @@ public class TetrisController {
 
         model.printBoard();
         displayBoard();
+        displayNextShapeBoard();
     }
 
     private void displayBoard()
@@ -64,6 +68,29 @@ public class TetrisController {
         }
     }
 
+    private void displayNextShapeBoard()
+    {
+        int x, y , c = 0;
+        for ( int i = 0 ; i < 4 ; i++ )
+        {
+            for ( int j = 0 ; j < 4 ; j++)
+            {
+                view.setNextShapeViewWhite(i,j);
+            }
+        }
+
+        for( int i = 0 ; i < 4; i++)
+        {
+            x = model.getNextShape().getBlockX(i) - (model.getWIDTH()-4)/2 ;
+            y = model.getNextShape().getBlockY(i);
+            c = model.getNextShape().getBlockColor(i);
+
+            System.out.println(x + " " + y + " " + c);
+
+            view.setNextShapeViewColor(x,y,c);
+        }
+    }
+
     class TetrisKeyListener implements KeyListener {
 
         private int keyCode;
@@ -77,6 +104,7 @@ public class TetrisController {
                 {
                     model.moveShapeDown();
                     displayBoard();
+                    displayNextShapeBoard();
                     break;
                 }
                 case KeyEvent.VK_UP:

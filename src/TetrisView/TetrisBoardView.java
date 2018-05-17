@@ -14,8 +14,15 @@ public class TetrisBoardView extends JPanel {
 
     private static Color[] colorOfShape;
 
+
+    private static int height;
+    private static int width;
+
     TetrisBoardView()
     {
+        height = TetrisModel.getHEIGHT();
+        width = TetrisModel.getWIDTH();
+
         GridLayout gridLayout = new GridLayout(TetrisModel.getHEIGHT(), TetrisModel.getWIDTH());
         setLayout(gridLayout);
 
@@ -34,13 +41,36 @@ public class TetrisBoardView extends JPanel {
         colorOfShape[6] = Color.CYAN;
     }
 
+    TetrisBoardView(int x, int y)
+    {
+        height = x;
+        width = y;
+        GridLayout gridLayout = new GridLayout(x, y);
+        setLayout(gridLayout);
+
+
+        tetrisBoard = new JPanel[x][y];
+
+        initBoard();
+        addBoard();
+
+        colorOfShape = new Color[7];
+        colorOfShape[0] = Color.BLUE;
+        colorOfShape[1] = Color.GREEN;
+        colorOfShape[2] = Color.RED;
+        colorOfShape[3] = Color.YELLOW;
+        colorOfShape[4] = Color.ORANGE;
+        colorOfShape[5] = Color.MAGENTA;
+        colorOfShape[6] = Color.CYAN;
+    }
+
 
     private void initBoard()
     {
         //initialize every single Jpanel in Jpanel[][], set dimension
-        for( int  i = 0 ; i < TetrisModel.getHEIGHT(); i++)
+        for( int  i = 0 ; i < height; i++)
         {
-            for( int j = 0 ;j < TetrisModel.getWIDTH(); j++)
+            for( int j = 0 ;j < width; j++)
             {
                 tetrisBoard[i][j] = new JPanel() {
 
@@ -57,9 +87,9 @@ public class TetrisBoardView extends JPanel {
 
     private void addBoard()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < height; i++)
         {
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < width; j++)
             {
                 add(tetrisBoard[i][j]);
             }

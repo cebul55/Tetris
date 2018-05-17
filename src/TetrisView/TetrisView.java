@@ -14,6 +14,8 @@ public class TetrisView extends JFrame{
     public static final int WIDTH = 600;
 
     private TetrisBoardView boardView;
+    private TetrisBoardView nextShapeView;
+    private ControlPanel controlPanel;
 
     public TetrisView()
     {
@@ -25,6 +27,11 @@ public class TetrisView extends JFrame{
 
         boardView = new TetrisBoardView();
         add(boardView, BorderLayout.CENTER);
+
+        nextShapeView = new TetrisBoardView(4,4);
+        //add(nextShapeView, BorderLayout.EAST);
+        controlPanel = new ControlPanel(nextShapeView);
+        add(controlPanel, BorderLayout.EAST);
 
         this.setVisible(true);
     }
@@ -38,5 +45,14 @@ public class TetrisView extends JFrame{
     {
         boardView.setWhiteColorOfBoard(y,x);
     }
+    public void setNextShapeViewColor(int x, int y , int c)
+    {
+        nextShapeView.setColorOfBoard(x,y,c);
+    }
+    public void setNextShapeViewWhite(int y, int x)
+    {
+        nextShapeView.setWhiteColorOfBoard(y,x);
+    }
+
 }
 
