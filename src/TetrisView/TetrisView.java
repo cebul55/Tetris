@@ -16,12 +16,14 @@ public class TetrisView extends JFrame{
     private TetrisBoardView boardView;
     private TetrisBoardView nextShapeView;
     private ControlPanel controlPanel;
+    private EndGameDialog endGameDialog;
+    private SettingsWindow settingsWindow;
 
     public TetrisView()
     {
         setTitle("TETRIS");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(HEIGHT, WIDTH);
+        this.setSize(WIDTH, HEIGHT);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation(dim.width/2 - this.getSize().width/2 , dim.height/2 - this.getSize().height/2);
 
@@ -33,6 +35,9 @@ public class TetrisView extends JFrame{
         controlPanel = new ControlPanel(nextShapeView);
         add(controlPanel, BorderLayout.EAST);
 
+        settingsWindow = new SettingsWindow(this);
+        settingsWindow.setVisible(true);
+
         this.setVisible(true);
     }
 
@@ -43,7 +48,7 @@ public class TetrisView extends JFrame{
 
     public void setBoardWhite(int y, int x)
     {
-        boardView.setWhiteColorOfBoard(y,x);
+        boardView.setDefaultColorOfBoard(y,x);
     }
     public void setNextShapeViewColor(int x, int y , int c)
     {
@@ -51,8 +56,21 @@ public class TetrisView extends JFrame{
     }
     public void setNextShapeViewWhite(int y, int x)
     {
-        nextShapeView.setWhiteColorOfBoard(y,x);
+        nextShapeView.setDefaultColorOfBoard(y,x);
     }
 
+    public void endGame(int score)
+    {
+        endGameDialog = new EndGameDialog(this,10);
+        endGameDialog.setVisible(true);
+    }
+    public void setBoardDefaultColor(Color c)
+    {
+        boardView.setDefaultColor(c);
+    }
+    public void setSettingsWindowVisible()
+    {
+        settingsWindow.setVisible(true);
+    }
 }
 

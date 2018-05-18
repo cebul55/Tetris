@@ -1,11 +1,9 @@
-import TetrisController.TetrisController;
-import TetrisModel.TetrisModel;
-import TetrisView.TetrisView;
+import TetrisController.TetrisControler;
 
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("Tu powstanie Tetris");
-        TetrisController controller = new TetrisController();
+        TetrisControler controller = new TetrisControler();
     }
 }

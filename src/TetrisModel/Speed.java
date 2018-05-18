@@ -1,0 +1,44 @@
+package TetrisModel;
+
+public class Speed {
+
+    private long speed[];
+    private int level;
+
+    Speed()
+    {
+        speed = new long[11];
+        level = 1;
+
+        speed[1] = 1000L;
+        speed[2] = 900L;
+        speed[3] = 800L;
+        speed[4] = 700L;
+        speed[5] = 600L;
+        speed[6] = 500L;
+        speed[7] = 400L;
+        speed[8] = 300L;
+        speed[9] = 250L;
+        speed[10] = 200L;
+    }
+
+    public void levelUp()
+    {
+        this.level++;
+    }
+    public long getSpeed()
+    {
+        return speed[this.level];
+    }
+
+    public void setLevel(int i)
+    {
+        if(i < 1 || i > 10)
+        {
+            System.out.println("level musi byc 1-10");
+            level = 1;
+        }
+        else
+            level = i;
+    }
+}

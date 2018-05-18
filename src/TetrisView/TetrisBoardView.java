@@ -13,6 +13,7 @@ public class TetrisBoardView extends JPanel {
     private JPanel[][] tetrisBoard;
 
     private static Color[] colorOfShape;
+    private static Color defaultColor;
 
 
     private static int height;
@@ -22,6 +23,8 @@ public class TetrisBoardView extends JPanel {
     {
         height = TetrisModel.getHEIGHT();
         width = TetrisModel.getWIDTH();
+
+        defaultColor = Color.WHITE;
 
         GridLayout gridLayout = new GridLayout(TetrisModel.getHEIGHT(), TetrisModel.getWIDTH());
         setLayout(gridLayout);
@@ -79,7 +82,7 @@ public class TetrisBoardView extends JPanel {
                         return new Dimension(40, 40);
                     }
                 };
-                setWhiteColorOfBoard(i, j);
+                setDefaultColorOfBoard(i, j);
                 tetrisBoard[i][j].setBorder(BorderFactory.createLineBorder(Color.GRAY));
             }
         }
@@ -96,14 +99,19 @@ public class TetrisBoardView extends JPanel {
         }
     }
 
+    void setDefaultColor(Color color)
+    {
+        defaultColor = color;
+    }
+
     void setColorOfBoard(int x, int y, int c)
     {
         tetrisBoard[y][x].setBackground(colorOfShape[c]);
     }
 
-    void setWhiteColorOfBoard(int y, int x)
+    void setDefaultColorOfBoard(int y, int x)
     {
-        tetrisBoard[y][x].setBackground(Color.WHITE);
+        tetrisBoard[y][x].setBackground(defaultColor);
     }
     //todo finist tetris board, wpierdol w view
 }

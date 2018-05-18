@@ -5,21 +5,22 @@ import TetrisModel.RandomShapeGenerator;
 import TetrisModel.TetrisShape;
 import TetrisView.TetrisView;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * TetrisController-klasa sluzaca do komunikacji pomiedzy modelem i widokiem. Rejestruje przekazane przez widok akcje uzytokwnika
+ * TetrisControler-klasa sluzaca do komunikacji pomiedzy modelem i widokiem. Rejestruje przekazane przez widok akcje uzytokwnika
  * oraz wysyla do widoku zmiany dokonana przez model.
  */
 
-public class TetrisController {
+public class TetrisControler {
     private TetrisModel model;
     private TetrisView view;
 
     private TetrisShape[] twoShapes;
 
-    public TetrisController()
+    public TetrisControler()
     {
         model = new TetrisModel();
 
@@ -123,6 +124,18 @@ public class TetrisController {
                 {
                     model.moveShapeLeft();
                     displayBoard();
+                    break;
+                }
+                case KeyEvent.VK_SPACE:
+                {
+                    view.endGame(10);
+                    break;
+                }
+                case KeyEvent.VK_C:
+                {
+                    view.setBoardDefaultColor(Color.BLACK);
+                    displayBoard();
+                    displayNextShapeBoard();
                     break;
                 }
             }
