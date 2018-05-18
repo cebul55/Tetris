@@ -36,7 +36,7 @@ public class TetrisView extends JFrame{
         add(controlPanel, BorderLayout.EAST);
 
         settingsWindow = new SettingsWindow(this);
-        settingsWindow.setVisible(true);
+
 
         this.setVisible(true);
     }

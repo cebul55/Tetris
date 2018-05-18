@@ -41,19 +41,19 @@ package TetrisModel;
          switch (state)
          {
              case UP:
-                 this.setVertically();
+                 this.setHorizontally();
                  state = RIGHT;
                  break;
              case RIGHT:
-                 this.setHorizontally();
+                 this.setVertically();
                  state = DOWN;
                  break;
              case DOWN:
-                 this.setVertically();
+                 this.setHorizontally();
                  state = LEFT;
                  break;
              case LEFT:
-                 this.setHorizontally();
+                 this.setVertically();
                  state = UP;
                  break;
          }

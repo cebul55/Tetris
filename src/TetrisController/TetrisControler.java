@@ -138,6 +138,11 @@ public class TetrisControler {
                     displayNextShapeBoard();
                     break;
                 }
+                case KeyEvent.VK_ESCAPE:
+                {
+                    view.setSettingsWindowVisible();
+                    break;
+                }
             }
 
             model.printSumInLines();
