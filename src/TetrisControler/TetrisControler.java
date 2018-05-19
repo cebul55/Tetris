@@ -1,4 +1,4 @@
-package TetrisController;
+package TetrisControler;
 
 import TetrisModel.TetrisModel;
 import TetrisModel.RandomShapeGenerator;
@@ -6,6 +6,8 @@ import TetrisModel.TetrisShape;
 import TetrisView.TetrisView;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -20,12 +22,12 @@ public class TetrisControler {
 
     private TetrisShape[] twoShapes;
 
-    public TetrisControler()
-    {
+    public TetrisControler() {
         model = new TetrisModel();
 
         view = new TetrisView();
-        this.view.addKeyListener(new TetrisKeyListener());
+        this.view.addTetrisKeyListener(new TetrisKeyListener());
+        this.view.addSettingsButtonListener(new SettingsButtonListener());
         view.setVisible(true);
 
 
@@ -86,10 +88,10 @@ public class TetrisControler {
             y = model.getNextShape().getBlockY(i);
             c = model.getNextShape().getBlockColor(i);
 
-            System.out.println(x + " " + y + " " + c);
-
             view.setNextShapeViewColor(x,y,c);
         }
+
+        view.changeDisplayedScore(model.getScore());
     }
 
     class TetrisKeyListener implements KeyListener {
@@ -128,7 +130,7 @@ public class TetrisControler {
                 }
                 case KeyEvent.VK_SPACE:
                 {
-                    view.endGame(10);
+                    view.endGame(model.getScore());
                     break;
                 }
                 case KeyEvent.VK_C:
@@ -144,8 +146,8 @@ public class TetrisControler {
                     break;
                 }
             }
+            view.revalidate();
 
-            model.printSumInLines();
         }
 
         @Override
@@ -153,5 +155,14 @@ public class TetrisControler {
 
         @Override
         public void keyTyped(KeyEvent e) {}
+    }
+
+    class SettingsButtonListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent event)
+        {
+            view.setSettingsWindowVisible();
+        }
     }
 }

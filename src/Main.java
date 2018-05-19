@@ -1,4 +1,4 @@
-import TetrisController.TetrisControler;
+import TetrisControler.TetrisControler;
 
 public class Main {
 

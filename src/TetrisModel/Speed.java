@@ -24,18 +24,23 @@ public class Speed {
 
     public void levelUp()
     {
-        this.level++;
+        if(level < 10)
+            this.level++;
     }
-    public long getSpeed()
+    long getSpeed()
     {
         return speed[this.level];
     }
 
-    public void setLevel(int i)
+    int getLevel()
+    {
+        return this.level;
+    }
+
+    void setLevel(int i)
     {
         if(i < 1 || i > 10)
         {
-            System.out.println("level musi byc 1-10");
             level = 1;
         }
         else

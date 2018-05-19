@@ -66,7 +66,7 @@ class LineCleaner {
     {
         if(checkIfRowHasToBeCleaned(numberOfCleanedRow) )
         {
-            tetrisModel.addToScore(this.getNumberOfCleanedBlocks(numberOfCleanedRow));
+            tetrisModel.addToScore();
             setNumberOfBlocksInCleanedRowToZero(numberOfCleanedRow);
             for (TetrisShape shape : shapesOnTheBoard)
             {
@@ -79,9 +79,6 @@ class LineCleaner {
                         i = 0;
                     }
                 }
-                //TODO change deleting shapes
-//                if(shape.getNumberOfBlocks() == 0)
-//                    removeEmptyShapeFromArray( shapesOnTheBoard ,shapesOnTheBoard.indexOf(shape) );
             }
             removeEmptyShapes();
             moveEverythingDown(numberOfCleanedRow, shapesOnTheBoard);

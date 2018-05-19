@@ -19,20 +19,20 @@ public class TetrisModel {
 
     private RandomShapeGenerator shapeGenerator;
     private LineCleaner lineCleaner;
-    private int tetrisScore;
+    private Score score;
+    private Speed speed = new Speed();
     private static boolean[][] tetrisBoard;
     private ArrayList<TetrisShape> shapesOnBoard;
     private TetrisShape currentShape;
     private TetrisShape nextShape;
 
 
-    public TetrisModel()
-    {
+    public TetrisModel() {
         lineCleaner = new LineCleaner(HEIGHT, WIDTH,this);
         shapeGenerator = new RandomShapeGenerator();
         shapesOnBoard = new ArrayList<>();
         tetrisBoard = new boolean[HEIGHT][WIDTH];
-        tetrisScore = 0;
+        score = new Score(this.getWIDTH());
 
         for( int i = 0 ; i < HEIGHT; i++)
         {
@@ -44,6 +44,11 @@ public class TetrisModel {
 
         //not elemeent of declaration, just test of different shapes
 
+        try {
+            this.setLevel(11);
+        } catch (Exception e) {
+
+        }
         /*TetrisShape shape;
         //shape = shapeGenerator.getTetrisShape();
         shape = new TetrisShape_T();
@@ -59,10 +64,28 @@ public class TetrisModel {
 
     }
 
-    void addToScore(int score)
-    {
-        tetrisScore += score;
+    void setLevel(int i) {
+            speed.setLevel(i);
     }
+
+    void levelUp(int currentScore )
+    {
+        if(speed.getSpeed() * 100 < currentScore )
+            speed.levelUp();
+    }
+
+    void addToScore()
+    {
+        this.score.addScore();
+        this.levelUp(score.getTetrisScore());
+        System.out.println("Score: " + this.score.getTetrisScore());
+    }
+
+    public int getScore()
+    {
+        return score.getTetrisScore() ;
+    }
+
 
     public boolean[][] getTetrisBoard()
     {
@@ -369,8 +392,5 @@ public class TetrisModel {
             System.out.println();
         }
     }
-    public void printSumInLines()
-    {
-        lineCleaner.printStateOfLines();
-    }
+
 }

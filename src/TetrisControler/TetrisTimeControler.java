@@ -1,4 +1,4 @@
-package TetrisController;
+package TetrisControler;
 
 public class TetrisTimeControler {
 }

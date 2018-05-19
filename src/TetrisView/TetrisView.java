@@ -1,7 +1,11 @@
 package TetrisView;
 
+import TetrisControler.TetrisControler;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 
 /**
  * TetrisView - klasa sluzaca do komunikacji z uzytkownikiem. Wyswietla aktualna zawartosc planszy oraz przekazuje wykonane przez
@@ -29,6 +33,7 @@ public class TetrisView extends JFrame{
 
         boardView = new TetrisBoardView();
         add(boardView, BorderLayout.CENTER);
+
 
         nextShapeView = new TetrisBoardView(4,4);
         //add(nextShapeView, BorderLayout.EAST);
@@ -61,7 +66,7 @@ public class TetrisView extends JFrame{
 
     public void endGame(int score)
     {
-        endGameDialog = new EndGameDialog(this,10);
+        endGameDialog = new EndGameDialog(this,score);
         endGameDialog.setVisible(true);
     }
     public void setBoardDefaultColor(Color c)
@@ -72,5 +77,18 @@ public class TetrisView extends JFrame{
     {
         settingsWindow.setVisible(true);
     }
+    public void changeDisplayedScore(int score)
+    {
+        controlPanel.changeScore(score);
+    }
+    public void addTetrisKeyListener(KeyListener l)
+    {
+        boardView.addKeyListener(l);
+    }
+    public void addSettingsButtonListener(ActionListener l)
+    {
+        controlPanel.addSettingsButtonListener(l);
+    }
+
 }
 

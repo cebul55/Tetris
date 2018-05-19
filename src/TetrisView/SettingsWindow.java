@@ -4,7 +4,6 @@ import jdk.nashorn.internal.scripts.JD;
 
 import javax.swing.*;
 import java.awt.*;
-import java.security.PrivateKey;
 
 public class SettingsWindow extends JDialog{
     private static final int HEIGHT = 300;

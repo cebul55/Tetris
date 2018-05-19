@@ -1,33 +1,47 @@
 package TetrisView;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
-public class ControlPanel extends JPanel{
-    TetrisBoardView nextShapeView;
-    JLabel scoreField;
+class ControlPanel extends JPanel{
+
+    private JPanel controlPanel = new JPanel();
+    private TetrisBoardView nextShapeView;
+    private JLabel scoreField = new JLabel();
+    private JButton settingsButton = new JButton("Settings");
     //JButton pauseButton;
 
     ControlPanel(TetrisBoardView nextView)
     {
         nextShapeView = nextView;
-        JLabel scoreField = new JLabel("new");
-        scoreField.setText("das");
+        scoreField.setText("Score: 0");
         //JButton pauseButton = new JButton("PAUSE");
 
+        controlPanel.add(scoreField);
+        controlPanel.add(nextShapeView);
+        controlPanel.add(settingsButton);
 
-        this.add(scoreField);
-        this.add(nextView);
+        controlPanel.setLayout(new BoxLayout(controlPanel, BoxLayout.Y_AXIS));
+
+        this.add(controlPanel);
+
+        //this.add(scoreField);
+        //this.add(nextView);
         //this.add(pauseButton);
 
 
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
-    void changeScore()
+    void changeScore(int score)
     {
-        scoreField.setText("daawea");
+        scoreField.setText("Score: " + score);
+        controlPanel.revalidate();
     }
 
+    void addSettingsButtonListener(ActionListener l)
+    {
+        settingsButton.addActionListener(l);
+    }
     //todo find out why jlabel is null , add listeners and so on
     //todo create time controller
 }
