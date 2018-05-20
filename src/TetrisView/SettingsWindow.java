@@ -4,6 +4,7 @@ import jdk.nashorn.internal.scripts.JD;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class SettingsWindow extends JDialog{
     private static final int HEIGHT = 300;
@@ -25,8 +26,8 @@ public class SettingsWindow extends JDialog{
         setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 
         JPanel settingPanel = new JPanel();
-        darkModeChoice.addItem("ON");
         darkModeChoice.addItem("OFF");
+        darkModeChoice.addItem("ON");
 
         levelChoice.addItem("1");
         levelChoice.addItem("2");
@@ -48,6 +49,11 @@ public class SettingsWindow extends JDialog{
         this.add(settingPanel);
     }
 
+    public void addComboListener(ActionListener l)
+    {
+        darkModeChoice.addActionListener(l);
+        levelChoice.addActionListener(l);
+    }
 
 }//todo wybierz jakis fajny layout
 

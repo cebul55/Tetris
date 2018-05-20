@@ -6,10 +6,8 @@ import TetrisModel.TetrisShape;
 import TetrisView.TetrisView;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  * TetrisControler-klasa sluzaca do komunikacji pomiedzy modelem i widokiem. Rejestruje przekazane przez widok akcje uzytokwnika
@@ -28,6 +26,8 @@ public class TetrisControler {
         view = new TetrisView();
         this.view.addTetrisKeyListener(new TetrisKeyListener());
         this.view.addSettingsButtonListener(new SettingsButtonListener());
+        this.view.addBoardFocusListener(new BoardFocusListener());
+        this.view.addComboListener(new ComboListener());
         view.setVisible(true);
 
 
@@ -163,6 +163,56 @@ public class TetrisControler {
         public void actionPerformed(ActionEvent event)
         {
             view.setSettingsWindowVisible();
+        }
+    }
+
+    class BoardFocusListener implements MouseListener
+    {
+        @Override
+        public void mouseEntered(MouseEvent mouseEvent) {}
+
+        @Override
+        public void mouseClicked(MouseEvent mouseEvent)
+        {
+            view.grabBoardFocus();
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent mouseEvent) {}
+
+        @Override
+        public void mouseExited(MouseEvent mouseEvent) {}
+
+        @Override
+        public void mousePressed(MouseEvent mouseEvent) {}
+    }
+
+    class ComboListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent event)
+        {
+            JComboBox<String> box;
+            box = (JComboBox<String>) event.getSource();
+            switch (box.getItemAt(box.getSelectedIndex())){
+                case "ON":
+                {
+                    view.setBoardDefaultColor( Color.BLACK );
+                    displayBoard();
+                    displayNextShapeBoard();
+                    view.revalidate();
+                    break;
+                }
+                case "OFF":
+                {
+                    view.setBoardDefaultColor( Color.WHITE );
+                    displayBoard();
+                    displayNextShapeBoard();
+                    view.revalidate();
+                    break;
+                }
+
+            }
         }
     }
 }

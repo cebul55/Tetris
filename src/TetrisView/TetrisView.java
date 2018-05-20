@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
 
 /**
  * TetrisView - klasa sluzaca do komunikacji z uzytkownikiem. Wyswietla aktualna zawartosc planszy oraz przekazuje wykonane przez
@@ -32,12 +33,12 @@ public class TetrisView extends JFrame{
         setLocation(dim.width/2 - this.getSize().width/2 , dim.height/2 - this.getSize().height/2);
 
         boardView = new TetrisBoardView();
-        add(boardView, BorderLayout.CENTER);
 
 
         nextShapeView = new TetrisBoardView(4,4);
-        //add(nextShapeView, BorderLayout.EAST);
         controlPanel = new ControlPanel(nextShapeView);
+
+        add(boardView, BorderLayout.CENTER);
         add(controlPanel, BorderLayout.EAST);
 
         settingsWindow = new SettingsWindow(this);
@@ -84,11 +85,27 @@ public class TetrisView extends JFrame{
     public void addTetrisKeyListener(KeyListener l)
     {
         boardView.addKeyListener(l);
+        this.grabBoardFocus();
     }
     public void addSettingsButtonListener(ActionListener l)
     {
         controlPanel.addSettingsButtonListener(l);
     }
 
+    public void addBoardFocusListener(MouseListener l)
+    {
+        boardView.addMouseListener(l);
+    }
+
+    public void addComboListener(ActionListener l)
+    {
+        settingsWindow.addComboListener(l);
+    }
+
+    public void grabBoardFocus()
+    {
+        boardView.grabFocus();
+        //todo try to implement autofocusing after exiting from another window
+    }
 }
 
