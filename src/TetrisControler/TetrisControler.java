@@ -24,24 +24,31 @@ public class TetrisControler {
         model = new TetrisModel();
 
         view = new TetrisView();
+
         this.view.addTetrisKeyListener(new TetrisKeyListener());
-        this.view.addSettingsButtonListener(new SettingsButtonListener());
+        this.view.addButtonListener(new ButtonListener());
         this.view.addBoardFocusListener(new BoardFocusListener());
         this.view.addComboListener(new ComboListener());
+
         view.setVisible(true);
 
 
 
         twoShapes = new TetrisShape[2];
 
-        model.addShape(new RandomShapeGenerator().getTetrisShape() );
-        twoShapes[0] = model.getCurrentShape();
-        twoShapes[1] = model.getNextShape();
+        this.modelAddShape();
 
 
         model.printBoard();
         displayBoard();
         displayNextShapeBoard();
+    }
+
+    void modelAddShape()
+    {
+        model.addShape(new RandomShapeGenerator().getTetrisShape() );
+        twoShapes[0] = model.getCurrentShape();
+        twoShapes[1] = model.getNextShape();
     }
 
     private void displayBoard()
@@ -92,6 +99,12 @@ public class TetrisControler {
         }
 
         view.changeDisplayedScore(model.getScore());
+        view.changeDisplayedLevel(model.getLevel()  );
+    }
+
+    private void endGame()
+    {
+        view.endGame(model.getScore());
     }
 
     class TetrisKeyListener implements KeyListener {
@@ -105,7 +118,8 @@ public class TetrisControler {
             {
                 case KeyEvent.VK_DOWN:
                 {
-                    model.moveShapeDown();
+                    if(model.moveShapeDown() == 1)
+                        endGame();
                     displayBoard();
                     displayNextShapeBoard();
                     break;
@@ -130,7 +144,11 @@ public class TetrisControler {
                 }
                 case KeyEvent.VK_SPACE:
                 {
-                    view.endGame(model.getScore());
+                    while (model.moveShapeDown() == 0){
+                        displayBoard();
+                    }
+                    displayBoard();
+                    displayNextShapeBoard();
                     break;
                 }
                 case KeyEvent.VK_C:
@@ -157,12 +175,33 @@ public class TetrisControler {
         public void keyTyped(KeyEvent e) {}
     }
 
-    class SettingsButtonListener implements ActionListener
+    class ButtonListener implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent event)
         {
-            view.setSettingsWindowVisible();
+            JButton button =  (JButton) event.getSource();
+            switch (button.getText() )
+            {
+                case "Settings": {
+                    view.hideEndGameDialog();
+                    view.setSettingsWindowVisible();
+                    break;
+                }
+                case "New Game": {
+                    view.hideEndGameDialog();
+                    model = new TetrisModel();
+                    modelAddShape();
+                    displayBoard();
+                    displayNextShapeBoard();
+                    break;
+                }
+                case "Exit Game":
+                {
+                    System.exit(0);
+                    break;
+                }
+            }
         }
     }
 
@@ -215,4 +254,5 @@ public class TetrisControler {
             }
         }
     }
+
 }

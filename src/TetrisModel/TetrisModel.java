@@ -44,11 +44,6 @@ public class TetrisModel {
 
         //not elemeent of declaration, just test of different shapes
 
-        try {
-            this.setLevel(11);
-        } catch (Exception e) {
-
-        }
         /*TetrisShape shape;
         //shape = shapeGenerator.getTetrisShape();
         shape = new TetrisShape_T();
@@ -70,7 +65,7 @@ public class TetrisModel {
 
     void levelUp(int currentScore )
     {
-        if(speed.getSpeed() * 100 < currentScore )
+        if(speed.getLevel() * 50 <= currentScore )
             speed.levelUp();
     }
 
@@ -86,6 +81,10 @@ public class TetrisModel {
         return score.getTetrisScore() ;
     }
 
+    public int getLevel()
+    {
+        return speed.getLevel();
+    }
 
     public boolean[][] getTetrisBoard()
     {
@@ -136,7 +135,7 @@ public class TetrisModel {
         return shapesOnBoard.size();
     }
 
-    public void addShape(TetrisShape shape)
+    public int addShape(TetrisShape shape)
     {
         //jako jedyna ta funkcja przyrownuje nextShape do tablicy
 
@@ -147,13 +146,14 @@ public class TetrisModel {
         if( !checkIfCanMove(NO_DIRECTION) )
         {
             System.out.println("Error cannot add. Game is over");
-            return;
+            return 1;
         }
 
         this.setVisible();
+        return 0;
     }
 
-    public void moveShapeDown() {
+    public int moveShapeDown() {
         //checking if shape can move down
         this.setInvisible();
         if(!checkIfCanMove(DOWN_DIRECTION))
@@ -164,8 +164,12 @@ public class TetrisModel {
             this.setVisible();
             this.settleShape();
             //dodanie kolejnego ksztaltu
-            this.addShape(nextShape);
-            return;
+            if(this.addShape(nextShape) == 1)
+            {
+                return 1;
+            }
+
+            return 2;
         }
 
 
@@ -175,6 +179,7 @@ public class TetrisModel {
         }
         //informing board about new position
         this.setVisible();
+        return 0;
     }
 
     public void moveShapeRight()

@@ -7,19 +7,24 @@ class ControlPanel extends JPanel{
 
     private JPanel controlPanel = new JPanel();
     private TetrisBoardView nextShapeView;
+    private JLabel levelField = new JLabel();
     private JLabel scoreField = new JLabel();
     private JButton settingsButton = new JButton("Settings");
+    private JButton newGameButton = new JButton("New Game");
     //JButton pauseButton;
 
     ControlPanel(TetrisBoardView nextView)
     {
         nextShapeView = nextView;
+        levelField.setText("Level: 1");
         scoreField.setText("Score: 0");
         //JButton pauseButton = new JButton("PAUSE");
 
+        controlPanel.add(levelField);
         controlPanel.add(scoreField);
         controlPanel.add(nextShapeView);
         controlPanel.add(settingsButton);
+        controlPanel.add(newGameButton);
 
         controlPanel.setLayout(new BoxLayout(controlPanel, BoxLayout.Y_AXIS));
 
@@ -38,9 +43,16 @@ class ControlPanel extends JPanel{
         controlPanel.revalidate();
     }
 
-    void addSettingsButtonListener(ActionListener l)
+    void changeLevel(int level)
+    {
+        levelField.setText("Level: " + level);
+        controlPanel.revalidate();
+    }
+
+    void addButtonListener(ActionListener l)
     {
         settingsButton.addActionListener(l);
+        newGameButton.addActionListener(l);
     }
     //todo find out why jlabel is null , add listeners and so on
     //todo create time controller

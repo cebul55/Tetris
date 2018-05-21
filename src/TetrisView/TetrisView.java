@@ -1,7 +1,5 @@
 package TetrisView;
 
-import TetrisControler.TetrisControler;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -42,6 +40,7 @@ public class TetrisView extends JFrame{
         add(controlPanel, BorderLayout.EAST);
 
         settingsWindow = new SettingsWindow(this);
+        endGameDialog = new EndGameDialog(this);
 
 
         this.setVisible(true);
@@ -67,7 +66,9 @@ public class TetrisView extends JFrame{
 
     public void endGame(int score)
     {
-        endGameDialog = new EndGameDialog(this,score);
+        //endGameDialog = new EndGameDialog(this,score);
+        //endGameDialog.setVisible(true);
+        endGameDialog.changeTextLabel(score);
         endGameDialog.setVisible(true);
     }
     public void setBoardDefaultColor(Color c)
@@ -82,14 +83,20 @@ public class TetrisView extends JFrame{
     {
         controlPanel.changeScore(score);
     }
+
+    public void changeDisplayedLevel(int level)
+    {
+        controlPanel.changeLevel(level);
+    }
     public void addTetrisKeyListener(KeyListener l)
     {
         boardView.addKeyListener(l);
         this.grabBoardFocus();
     }
-    public void addSettingsButtonListener(ActionListener l)
+    public void addButtonListener(ActionListener l)
     {
-        controlPanel.addSettingsButtonListener(l);
+        controlPanel.addButtonListener(l);
+        endGameDialog.addButtonListener(l);
     }
 
     public void addBoardFocusListener(MouseListener l)
@@ -106,6 +113,11 @@ public class TetrisView extends JFrame{
     {
         boardView.grabFocus();
         //todo try to implement autofocusing after exiting from another window
+    }
+
+    public void hideEndGameDialog()
+    {
+        endGameDialog.setVisible(false);
     }
 }
 

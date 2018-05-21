@@ -16,7 +16,6 @@ public class SettingsWindow extends JDialog{
     private JComboBox<String> levelChoice = new JComboBox<>();
 
 
-
     SettingsWindow(JFrame owner)
     {
         super(owner, "Settings" , true);

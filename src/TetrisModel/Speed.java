@@ -24,7 +24,7 @@ public class Speed {
 
     public void levelUp()
     {
-        if(level < 10)
+        if(level < 10 )
             this.level++;
     }
     long getSpeed()
