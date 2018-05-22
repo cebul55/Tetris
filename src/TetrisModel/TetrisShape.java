@@ -96,16 +96,9 @@ public abstract class TetrisShape implements TetrisShapeInterface {
 
 
     @Override
-    public void rotateLeft()
-    {
-        //System.out.println("TODO rotate");
-    }
-
+    public void rotateLeft() {}
     @Override
-    public void rotateRight()
-    {
-        //System.out.println("TODO rotate");
-    }
+    public void rotateRight() {}
 
     @Override
     public Block getHighestBlock(TetrisShape shape){

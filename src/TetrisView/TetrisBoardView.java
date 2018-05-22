@@ -113,7 +113,6 @@ public class TetrisBoardView extends JPanel {
     {
         tetrisBoard[y][x].setBackground(defaultColor);
     }
-    //todo finist tetris board, wpierdol w view
 }
 
 

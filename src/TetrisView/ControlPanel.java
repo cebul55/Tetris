@@ -54,6 +54,6 @@ class ControlPanel extends JPanel{
         settingsButton.addActionListener(l);
         newGameButton.addActionListener(l);
     }
-    //todo find out why jlabel is null , add listeners and so on
+    //todo Info Panel
     //todo create time controller
 }

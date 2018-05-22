@@ -56,4 +56,3 @@ public class SettingsWindow extends JDialog{
 
 }//todo wybierz jakis fajny layout
 
-//todo zmiana koloru kafelków, zmiana defaultowej predkosci ,

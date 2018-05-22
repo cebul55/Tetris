@@ -21,6 +21,7 @@ public class TetrisView extends JFrame{
     private ControlPanel controlPanel;
     private EndGameDialog endGameDialog;
     private SettingsWindow settingsWindow;
+    private InfoWindow infoWindow;
 
     public TetrisView()
     {
@@ -41,7 +42,7 @@ public class TetrisView extends JFrame{
 
         settingsWindow = new SettingsWindow(this);
         endGameDialog = new EndGameDialog(this);
-
+        infoWindow = new InfoWindow(this);
 
         this.setVisible(true);
     }

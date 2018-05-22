@@ -188,6 +188,7 @@ public class TetrisControler {
                     view.hideEndGameDialog();
                     model = new TetrisModel();
                     modelAddShape();
+                    view.grabBoardFocus();
                     break;
                 }
                 case "Exit Game":
