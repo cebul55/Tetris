@@ -120,51 +120,47 @@ public class TetrisControler {
                 {
                     if(model.moveShapeDown() == 1)
                         endGame();
-                    displayBoard();
-                    displayNextShapeBoard();
                     break;
                 }
                 case KeyEvent.VK_UP:
                 {
                     model.rotateShapeRight();
-                    displayBoard();
                     break;
                 }
                 case KeyEvent.VK_RIGHT:
                 {
                     model.moveShapeRight();
-                    displayBoard();
                     break;
                 }
                 case KeyEvent.VK_LEFT:
                 {
                     model.moveShapeLeft();
-                    displayBoard();
                     break;
                 }
                 case KeyEvent.VK_SPACE:
                 {
                     while (model.moveShapeDown() == 0){
-                        displayBoard();
+                        /*if(model.moveShapeDown() == 1 )
+                            System.out.println("koniec gry");*/
+                        //displayBoard();
                     }
-                    displayBoard();
-                    displayNextShapeBoard();
                     break;
                 }
                 case KeyEvent.VK_C:
                 {
                     view.setBoardDefaultColor(Color.BLACK);
-                    displayBoard();
-                    displayNextShapeBoard();
                     break;
                 }
                 case KeyEvent.VK_ESCAPE:
                 {
-                    view.setSettingsWindowVisible();
+                    view.setSettingsWindowVisible(true);
                     break;
                 }
             }
+            displayBoard();
+            displayNextShapeBoard();
             view.revalidate();
+            view.repaint();
 
         }
 
@@ -185,15 +181,13 @@ public class TetrisControler {
             {
                 case "Settings": {
                     view.hideEndGameDialog();
-                    view.setSettingsWindowVisible();
+                    view.setSettingsWindowVisible(true);
                     break;
                 }
                 case "New Game": {
                     view.hideEndGameDialog();
                     model = new TetrisModel();
                     modelAddShape();
-                    displayBoard();
-                    displayNextShapeBoard();
                     break;
                 }
                 case "Exit Game":
@@ -202,6 +196,11 @@ public class TetrisControler {
                     break;
                 }
             }
+            displayBoard();
+            displayNextShapeBoard();
+            view.revalidate();
+            view.repaint();
+
         }
     }
 
@@ -237,21 +236,20 @@ public class TetrisControler {
                 case "ON":
                 {
                     view.setBoardDefaultColor( Color.BLACK );
-                    displayBoard();
-                    displayNextShapeBoard();
-                    view.revalidate();
                     break;
                 }
                 case "OFF":
                 {
                     view.setBoardDefaultColor( Color.WHITE );
-                    displayBoard();
-                    displayNextShapeBoard();
-                    view.revalidate();
                     break;
                 }
 
             }
+            displayBoard();
+            displayNextShapeBoard();
+            view.revalidate();
+            view.repaint();
+
         }
     }
 

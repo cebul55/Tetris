@@ -75,9 +75,9 @@ public class TetrisView extends JFrame{
     {
         boardView.setDefaultColor(c);
     }
-    public void setSettingsWindowVisible()
+    public void setSettingsWindowVisible(boolean x)
     {
-        settingsWindow.setVisible(true);
+        settingsWindow.setVisible(x);
     }
     public void changeDisplayedScore(int score)
     {

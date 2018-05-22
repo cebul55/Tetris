@@ -42,21 +42,6 @@ public class TetrisModel {
             }
         }
 
-        //not elemeent of declaration, just test of different shapes
-
-        /*TetrisShape shape;
-        //shape = shapeGenerator.getTetrisShape();
-        shape = new TetrisShape_T();
-        this.addShape(shape);
-
-        this.moveShapeRight();
-        this.rotateShapeRight();
-
-
-
-        settleShape();
-        printBoard();*/
-
     }
 
     void setLevel(int i) {
