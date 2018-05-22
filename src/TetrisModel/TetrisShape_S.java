@@ -14,25 +14,7 @@ package TetrisModel;
      @Override
      public void rotateLeft()
      {
-         switch (state)
-         {
-             case UP:
-                 this.setVertically();
-                 state = LEFT;
-                 break;
-             case RIGHT:
-                 this.setHorizontally();
-                 state = UP;
-                 break;
-             case DOWN:
-                 this.setVertically();
-                 state = RIGHT;
-                 break;
-             case LEFT:
-                 this.setHorizontally();
-                 state = DOWN;
-                 break;
-         }
+         this.rotateRight();
      }
 
      @Override
@@ -57,7 +39,6 @@ package TetrisModel;
                  state = UP;
                  break;
          }
-         //this.rotateLeft();
      }
 
      private void setVertically()

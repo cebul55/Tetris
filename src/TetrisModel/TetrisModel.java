@@ -328,10 +328,15 @@ public class TetrisModel {
                 //sprawdzenie czy nie wyjdzie po za tablice oraz czy nie najedzie na jakis ksztalt
                 for( int i = 0 ; i < this.currentShape.getNumberOfBlocks() ; i++)
                 {
-                    if(this.currentShape.getBlockY(i) >= HEIGHT || this.currentShape.getBlockX(i) >= WIDTH
-                            || this.currentShape.getBlockY(i) < 0 || this.currentShape.getBlockX(i) < 0
-                            || tetrisBoard[this.currentShape.getBlockY(i)][this.currentShape.getBlockX(i)]) {
+                    printBoard();
+                    System.out.println("");
+                    if(        (this.currentShape.getBlockY(i) >= HEIGHT)
+                            || (this.currentShape.getBlockX(i) >= WIDTH)
+                            || (this.currentShape.getBlockY(i) < 0)
+                            || (this.currentShape.getBlockX(i) < 0)
+                            || (tetrisBoard[this.currentShape.getBlockY(i)][this.currentShape.getBlockX(i)]) ){
                         doMove = false;
+                        System.out.println("tu nie zadzialalo");
                         return doMove;
                     }
                 }
