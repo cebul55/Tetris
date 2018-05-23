@@ -71,6 +71,8 @@ public class TetrisModel {
         return speed.getLevel();
     }
 
+    public long getSpeed() {return speed.getSpeed(); }
+
     public boolean[][] getTetrisBoard()
     {
         return tetrisBoard;

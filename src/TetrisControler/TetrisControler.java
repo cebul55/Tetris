@@ -38,6 +38,10 @@ public class TetrisControler {
 
         this.modelAddShape();
 
+        TetrisThread thread = new TetrisThread();
+        thread.run();
+        System.out.println(thread.isInterrupted());
+        thread.run();
 
         model.printBoard();
         displayBoard();
