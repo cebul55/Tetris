@@ -71,6 +71,11 @@ public class TetrisModel {
         return speed.getLevel();
     }
 
+    public long getSpeed()
+    {
+        return speed.getSpeed();
+    }
+
     public boolean[][] getTetrisBoard()
     {
         return tetrisBoard;
@@ -123,6 +128,8 @@ public class TetrisModel {
     public int addShape(TetrisShape shape)
     {
         //jako jedyna ta funkcja przyrownuje nextShape do tablicy
+        //0 - > shape can be added to board
+        //1 - > can't add shape to the board. Game over
 
         this.currentShape = shape;
         shapesOnBoard.add(shape);
@@ -140,6 +147,9 @@ public class TetrisModel {
 
     public int moveShapeDown() {
         //checking if shape can move down
+        //0 - > shape moved down succesfully
+        //1 - > can't add shape. Game is over
+        //2 - > shape can't be moved, adding another shape
         this.setInvisible();
         if(!checkIfCanMove(DOWN_DIRECTION))
         {

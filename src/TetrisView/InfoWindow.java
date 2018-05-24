@@ -22,6 +22,6 @@ public class InfoWindow extends JDialog{
 
         this.add(label, BorderLayout.CENTER);
         //todo credits
-        this.setVisible(true);
+        //this.setVisible(true);
     }
 }

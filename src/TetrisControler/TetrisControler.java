@@ -20,6 +20,8 @@ public class TetrisControler {
 
     private TetrisShape[] twoShapes;
 
+    private Thread timeThread;
+
     public TetrisControler() {
         model = new TetrisModel();
 
@@ -37,6 +39,8 @@ public class TetrisControler {
         twoShapes = new TetrisShape[2];
 
         this.modelAddShape();
+
+        newThread();
 
 
         model.printBoard();
@@ -105,6 +109,36 @@ public class TetrisControler {
     private void endGame()
     {
         view.endGame(model.getScore());
+    }
+
+    private void newThread()
+    {
+        timeThread = new Thread(){
+            @Override
+            public void run(){
+                while(true)
+                {
+                    try {
+                        Thread.sleep(model.getSpeed());
+                        if(model.moveShapeDown() == 1)
+                        {
+                            displayBoard();
+                            displayNextShapeBoard();
+                            view.revalidate();
+                            view.repaint();
+                            endGame();
+                            return;
+                        }
+                    } catch ( InterruptedException e ) {}
+                    displayBoard();
+                    displayNextShapeBoard();
+                    view.revalidate();
+                    view.repaint();
+                }
+            }
+
+        };
+        timeThread.start();
     }
 
     class TetrisKeyListener implements KeyListener {
@@ -180,6 +214,7 @@ public class TetrisControler {
             switch (button.getText() )
             {
                 case "Settings": {
+                    timeThread.interrupt();
                     view.hideEndGameDialog();
                     view.setSettingsWindowVisible(true);
                     break;
@@ -189,6 +224,7 @@ public class TetrisControler {
                     model = new TetrisModel();
                     modelAddShape();
                     view.grabBoardFocus();
+                    newThread();
                     break;
                 }
                 case "Exit Game":
