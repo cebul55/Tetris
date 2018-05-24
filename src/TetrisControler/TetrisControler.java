@@ -7,6 +7,7 @@ import TetrisView.TetrisView;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.concurrent.*;
 import javax.swing.*;
 
 /**
@@ -21,6 +22,10 @@ public class TetrisControler {
     private TetrisShape[] twoShapes;
 
     private Thread timeThread;
+
+    private ScheduledFuture<?> scheduledFuture;
+    private ScheduledExecutorService executorService;
+    private Runnable moveDownRunnable;
 
     public TetrisControler() {
         model = new TetrisModel();
@@ -40,10 +45,42 @@ public class TetrisControler {
 
         this.modelAddShape();
 
-        newThread();
+        //experiment adding executorService
+        moveDownRunnable = new Runnable() {
 
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(model.getSpeed());
+                        if (!Thread.interrupted()) {
+                            if (model.moveShapeDown() == 1) {
+                                displayBoard();
+                                displayNextShapeBoard();
+                                view.validate();
+                                view.repaint();
+                                endGame();
+                                return;
+                            }
+                        }
+                    }
+                    catch(InterruptedException e )
+                        {
+                            //e.printStackTrace();
+                            System.out.println(e.getLocalizedMessage());
+                        }
+                        displayBoard();
+                        displayNextShapeBoard();
+                        view.validate();
+                        view.repaint();
+                    }
+            }
+        };
 
-        model.printBoard();
+        //executorService = Executors.newScheduledThreadPool(1);
+        executorService = Executors.newSingleThreadScheduledExecutor();
+        changeTimeInterval();
+
         displayBoard();
         displayNextShapeBoard();
     }
@@ -107,9 +144,31 @@ public class TetrisControler {
         view.changeDisplayedLevel(model.getLevel()  );
     }
 
+    private void pauseGame(){
+        //invalid implementation
+        scheduledFuture.cancel(true);
+        executorService.shutdown();
+    }
+
+    private void resumeGame(){
+        scheduledFuture = executorService.schedule(moveDownRunnable, model.getSpeed(), TimeUnit.MILLISECONDS);
+    }
+
     private void endGame()
     {
+        scheduledFuture.cancel(true);
         view.endGame(model.getScore());
+    }
+
+    private void changeTimeInterval()
+    {
+        if(scheduledFuture != null)
+        {
+            scheduledFuture.cancel(true);
+        }
+        scheduledFuture = executorService.schedule(moveDownRunnable, model.getSpeed(), TimeUnit.MILLISECONDS);
+        //scheduledFuture = executorService.scheduleAtFixedRate(moveDownRunnable, 3, model.getSpeed(), TimeUnit.MILLISECONDS);
+
     }
 
     private void newThread()
@@ -177,16 +236,19 @@ public class TetrisControler {
                 }
                 case KeyEvent.VK_SPACE:
                 {
-                    while (model.moveShapeDown() == 0){
-                        /*if(model.moveShapeDown() == 1 )
-                            System.out.println("koniec gry");*/
-                        //displayBoard();
-                    }
-                    break;
-                }
-                case KeyEvent.VK_C:
-                {
-                    view.setBoardDefaultColor(Color.BLACK);
+                    int tmpValue;
+                    do{
+                        tmpValue = model.moveShapeDown();
+                        if(tmpValue == 1) {
+                            displayBoard();
+                            displayNextShapeBoard();
+                            view.revalidate();
+                            view.repaint();
+                            endGame();
+                            return;
+                        }
+                    }while (tmpValue == 0);
+
                     break;
                 }
                 case KeyEvent.VK_ESCAPE:
@@ -218,7 +280,12 @@ public class TetrisControler {
             switch (button.getText() )
             {
                 case "Settings": {
-                    timeThread.interrupt();
+                    //todo stop executing thread
+//                    try {
+//                        timeThread.join(1000);
+//                    }
+//                    catch (Exception e){}
+
                     view.hideEndGameDialog();
                     view.setSettingsWindowVisible(true);
                     break;
@@ -228,7 +295,7 @@ public class TetrisControler {
                     model = new TetrisModel();
                     modelAddShape();
                     view.grabBoardFocus();
-                    newThread();
+                    changeTimeInterval();
                     break;
                 }
                 case "Exit Game":
@@ -340,7 +407,6 @@ public class TetrisControler {
             displayNextShapeBoard();
             view.revalidate();
             view.repaint();
-
         }
     }
 

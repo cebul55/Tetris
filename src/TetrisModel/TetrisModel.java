@@ -58,7 +58,7 @@ public class TetrisModel {
     {
         this.score.addScore();
         this.levelUp(score.getTetrisScore());
-        System.out.println("Score: " + this.score.getTetrisScore());
+        //System.out.println("Score: " + this.score.getTetrisScore());
     }
 
     public int getScore()
@@ -137,7 +137,7 @@ public class TetrisModel {
 
         if( !checkIfCanMove(NO_DIRECTION) )
         {
-            System.out.println("Error cannot add. Game is over");
+            //System.out.println("Error cannot add. Game is over");
             return 1;
         }
 
@@ -153,7 +153,7 @@ public class TetrisModel {
         this.setInvisible();
         if(!checkIfCanMove(DOWN_DIRECTION))
         {
-            System.out.println("Nie możesz wyjść w dół po za krawędź, Dodaję nowy element");
+            //System.out.println("Nie możesz wyjść w dół po za krawędź, Dodaję nowy element");
 
             //wywolanie funkcji settleshape ustawia ksztalt na tablicy na stale
             this.setVisible();
@@ -183,7 +183,7 @@ public class TetrisModel {
         this.setInvisible();
         if(!checkIfCanMove(RIGHT_DIRECTION))
         {
-            System.out.println("Nie możesz wyjść w prawo po za krawędź");
+            //System.out.println("Nie możesz wyjść w prawo po za krawędź");
             this.setVisible();
             return;
         }
@@ -205,7 +205,7 @@ public class TetrisModel {
         this.setInvisible();
         if(!checkIfCanMove(LEFT_DIRECTION))
         {
-            System.out.println("Nie możesz wyjść w lewo po za krawędź");
+            //System.out.println("Nie możesz wyjść w lewo po za krawędź");
             this.setVisible();
             return;
         }
@@ -245,7 +245,7 @@ public class TetrisModel {
 
         if( !checkIfCanMove(ROTATE_DIRECTION) )
         {
-            System.out.println("Error cannot rotate");
+            //System.out.println("Error cannot rotate");
 
             currentShape.rotateLeft();
             //cofanie obrotu w razie niepowodzenia
@@ -264,7 +264,7 @@ public class TetrisModel {
 
         if( !checkIfCanMove(ROTATE_DIRECTION) )
         {
-            System.out.println("Error cannot rotate");
+            //System.out.println("Error cannot rotate");
 
             //cofanie obrotu w razie niepowodzenia
             currentShape.rotateRight();
@@ -338,15 +338,12 @@ public class TetrisModel {
                 //sprawdzenie czy nie wyjdzie po za tablice oraz czy nie najedzie na jakis ksztalt
                 for( int i = 0 ; i < this.currentShape.getNumberOfBlocks() ; i++)
                 {
-                    printBoard();
-                    System.out.println("");
                     if(        (this.currentShape.getBlockY(i) >= HEIGHT)
                             || (this.currentShape.getBlockX(i) >= WIDTH)
                             || (this.currentShape.getBlockY(i) < 0)
                             || (this.currentShape.getBlockX(i) < 0)
                             || (tetrisBoard[this.currentShape.getBlockY(i)][this.currentShape.getBlockX(i)]) ){
                         doMove = false;
-                        System.out.println("tu nie zadzialalo");
                         return doMove;
                     }
                 }
