@@ -7,6 +7,7 @@ import TetrisView.TetrisView;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.concurrent.*;
 import javax.swing.*;
 
 /**
@@ -18,10 +19,14 @@ public class TetrisControler {
     private TetrisModel model;
     private TetrisView view;
 
+    private static ScheduledFuture<?> scheduledFuture;
+    private static ScheduledExecutorService moveDownExec;
+    private static Runnable moveDownRunnable;
+
     private TetrisShape[] twoShapes;
 
     public TetrisControler() {
-        model = new TetrisModel();
+       // model = new TetrisModel();
 
         view = new TetrisView();
 
@@ -32,18 +37,27 @@ public class TetrisControler {
 
         view.setVisible(true);
 
-
-
         twoShapes = new TetrisShape[2];
 
-        this.modelAddShape();
 
-        TetrisThread thread = new TetrisThread();
-        thread.run();
-        System.out.println(thread.isInterrupted());
-        thread.run();
+        //this.modelAddShape();
 
-        model.printBoard();
+        moveDownExec = Executors.newSingleThreadScheduledExecutor();
+        moveDownRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if(model.moveShapeDown() == 1) {
+                    endGame();
+                    return;
+                }
+                displayBoard();
+                displayNextShapeBoard();
+                System.out.println(model.getSpeed());
+            }
+
+        };
+
+        newGame();
         displayBoard();
         displayNextShapeBoard();
     }
@@ -103,12 +117,43 @@ public class TetrisControler {
         }
 
         view.changeDisplayedScore(model.getScore());
-        view.changeDisplayedLevel(model.getLevel()  );
+        view.changeDisplayedLevel(model.getLevel());
+        refreshSpeed();
     }
 
     private void endGame()
     {
         view.endGame(model.getScore());
+    }
+
+    private void newGame()
+    {
+        model = new TetrisModel();
+        modelAddShape();
+
+        view.grabBoardFocus();
+
+
+        scheduledFuture = moveDownExec.scheduleAtFixedRate(moveDownRunnable, 5 , model.getSpeed(), TimeUnit.MILLISECONDS);
+
+//        moveDownExec.scheduleAtFixedRate( new Runnable(){
+//            @Override
+//            public void run(){
+//                System.out.println("print");
+//            }
+//        }, 0, model.getSpeed() , TimeUnit.MILLISECONDS);
+    }
+
+    private void refreshSpeed()
+    {
+        System.out.println("Zmiana Speed "+model.getSpeed());
+        //moveDownExec.shutdown();
+//        System.out.println("Spe1");
+//        moveDownExec.scheduleAtFixedRate(moveDownRunnable, 0, model.getSpeed(),TimeUnit.MILLISECONDS);
+//        System.out.println("Spe2");
+        scheduledFuture.cancel(true);
+        scheduledFuture = moveDownExec.scheduleAtFixedRate(moveDownRunnable, 0, model.getSpeed(), TimeUnit.MILLISECONDS);
+
     }
 
     class TetrisKeyListener implements KeyListener {
@@ -184,15 +229,17 @@ public class TetrisControler {
             switch (button.getText() )
             {
                 case "Settings": {
+                    moveDownExec.shutdown();
                     view.hideEndGameDialog();
                     view.setSettingsWindowVisible(true);
                     break;
                 }
                 case "New Game": {
                     view.hideEndGameDialog();
-                    model = new TetrisModel();
-                    modelAddShape();
-                    view.grabBoardFocus();
+//                    model = new TetrisModel();
+//                    modelAddShape();
+//                    view.grabBoardFocus();
+                    newGame();
                     break;
                 }
                 case "Exit Game":
