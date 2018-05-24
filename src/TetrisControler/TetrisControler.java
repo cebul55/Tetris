@@ -68,6 +68,7 @@ public class TetrisControler {
                 c = model.getShapeFromIndex(i).getBlockColor(j);
 
                 view.setBoardColor(x,y,c);
+                //todo disable coloring empty blocks bug
             }
         }
 
@@ -120,14 +121,16 @@ public class TetrisControler {
                 {
                     try {
                         Thread.sleep(model.getSpeed());
-                        if(model.moveShapeDown() == 1)
-                        {
-                            displayBoard();
-                            displayNextShapeBoard();
-                            view.revalidate();
-                            view.repaint();
-                            endGame();
-                            return;
+                        if(!Thread.currentThread().isInterrupted()){
+                            if(model.moveShapeDown() == 1)
+                            {
+                                displayBoard();
+                                displayNextShapeBoard();
+                                view.revalidate();
+                                view.repaint();
+                                endGame();
+                                return;
+                            }
                         }
                     } catch ( InterruptedException e ) {}
                     displayBoard();
@@ -138,6 +141,7 @@ public class TetrisControler {
             }
 
         };
+        timeThread.setPriority(Thread.NORM_PRIORITY);
         timeThread.start();
     }
 
@@ -278,6 +282,56 @@ public class TetrisControler {
                 case "OFF":
                 {
                     view.setBoardDefaultColor( Color.WHITE );
+                    break;
+                }
+                case "1":
+                {
+                    model.setLevel(1);
+                    break;
+                }
+                case "2":
+                {
+                    model.setLevel(2);
+                    break;
+                }
+                case "3":
+                {
+                    model.setLevel(3);
+                    break;
+                }
+                case "4":
+                {
+                    model.setLevel(4);
+                    break;
+                }
+                case "5":
+                {
+                    model.setLevel(5);
+                    break;
+                }
+                case "6":
+                {
+                    model.setLevel(6);
+                    break;
+                }
+                case "7":
+                {
+                    model.setLevel(7);
+                    break;
+                }
+                case "8":
+                {
+                    model.setLevel(8);
+                    break;
+                }
+                case "9":
+                {
+                    model.setLevel(9);
+                    break;
+                }
+                case "MAX":
+                {
+                    model.setLevel(10);
                     break;
                 }
 

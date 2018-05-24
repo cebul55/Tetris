@@ -37,7 +37,7 @@ public class SettingsWindow extends JDialog{
         levelChoice.addItem("7");
         levelChoice.addItem("8");
         levelChoice.addItem("9");
-        levelChoice.addItem("10");
+        levelChoice.addItem("MAX");
 
         settingPanel.add(darkMode);
         settingPanel.add(darkModeChoice);

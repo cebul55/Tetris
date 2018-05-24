@@ -44,7 +44,7 @@ public class TetrisModel {
 
     }
 
-    void setLevel(int i) {
+    public void setLevel(int i) {
             speed.setLevel(i);
     }
 
