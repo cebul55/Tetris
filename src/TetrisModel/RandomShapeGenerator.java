@@ -2,6 +2,10 @@ package TetrisModel;
 
 import java.util.Random;
 
+/**
+ * RandomShapeGenerator class uses java.util.Random in order to get random TetrisShape
+ */
+
 public class RandomShapeGenerator {
     private static Random random;
     private static int randomNumber;

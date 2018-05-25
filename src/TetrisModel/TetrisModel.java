@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * TetrisModel -klasa przechowujaca dane na temat aktualnej zawartosci planszy Tetris
+ * TetrisModel -class containing data about current tetris board, and shapes currently displayed
  */
 
 public class TetrisModel {
@@ -50,6 +50,7 @@ public class TetrisModel {
 
     void levelUp(int currentScore )
     {
+        // when player reaches certain number of points, level grows
         if(speed.getLevel() * 50 <= currentScore )
             speed.levelUp();
     }
@@ -58,7 +59,6 @@ public class TetrisModel {
     {
         this.score.addScore();
         this.levelUp(score.getTetrisScore());
-        //System.out.println("Score: " + this.score.getTetrisScore());
     }
 
     public int getScore()
@@ -137,7 +137,6 @@ public class TetrisModel {
 
         if( !checkIfCanMove(NO_DIRECTION) )
         {
-            //System.out.println("Error cannot add. Game is over");
             return 1;
         }
 
@@ -153,7 +152,6 @@ public class TetrisModel {
         this.setInvisible();
         if(!checkIfCanMove(DOWN_DIRECTION))
         {
-            //System.out.println("Nie możesz wyjść w dół po za krawędź, Dodaję nowy element");
 
             //wywolanie funkcji settleshape ustawia ksztalt na tablicy na stale
             this.setVisible();
@@ -183,11 +181,9 @@ public class TetrisModel {
         this.setInvisible();
         if(!checkIfCanMove(RIGHT_DIRECTION))
         {
-            //System.out.println("Nie możesz wyjść w prawo po za krawędź");
             this.setVisible();
             return;
         }
-
 
         //setting new position for shape
         for(int i = 0 ; i < this.currentShape.getNumberOfBlocks() ; i++)
@@ -205,13 +201,10 @@ public class TetrisModel {
         this.setInvisible();
         if(!checkIfCanMove(LEFT_DIRECTION))
         {
-            //System.out.println("Nie możesz wyjść w lewo po za krawędź");
             this.setVisible();
             return;
         }
 
-        //Setting current positions on board to false
-        //this.setInvisible();
 
         //setting new position for shape
         for(int i = 0 ; i < this.currentShape.getNumberOfBlocks() ; i++)
@@ -264,7 +257,6 @@ public class TetrisModel {
 
         if( !checkIfCanMove(ROTATE_DIRECTION) )
         {
-            //System.out.println("Error cannot rotate");
 
             //cofanie obrotu w razie niepowodzenia
             currentShape.rotateRight();
@@ -361,6 +353,8 @@ public class TetrisModel {
 
     private void settleShape()
     {
+        //settleShape gets info about currently dropped shape y position
+        //it starts line cleaner
         int[] numberOfLine = new int[4];
         numberOfLine[0] = this.currentShape.getBlockY(0);
         numberOfLine[1] = this.currentShape.getBlockY(1);

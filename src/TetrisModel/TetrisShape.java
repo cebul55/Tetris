@@ -102,6 +102,8 @@ public abstract class TetrisShape implements TetrisShapeInterface {
 
     @Override
     public Block getHighestBlock(TetrisShape shape){
+        //getHighestBlock gets Block that is in the 'left corner' of the shape
+        //that is important in order to set rotated shape in good direction
         int numberOfBlock = 0;
         int tmpLine = TetrisModel.getHEIGHT();
         int tmpRow = TetrisModel.getWIDTH();
@@ -124,6 +126,7 @@ public abstract class TetrisShape implements TetrisShapeInterface {
 
     public boolean isEqual(TetrisShape shape)
     {
+        //checks if Tetris Shape are equal
         int i = 0;
         boolean equal = true;
         if(shape == null){

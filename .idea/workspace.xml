@@ -3,12 +3,40 @@
   <component name="ChangeListManager">
     <list id="3cc7f0e0-2c51-49de-88aa-ea83faec50bb" name="class LineCleaner -&gt; used to handle action of removing row" comment="" />
     <list default="true" id="a491252d-cd64-4fb6-a197-eb1d9840b650" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/TetrisView/HelpDialog.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/TetrisView/keysIcon/down.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/TetrisView/keysIcon/esc.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/TetrisView/keysIcon/h.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/TetrisView/keysIcon/left.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/TetrisView/keysIcon/n.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/TetrisView/keysIcon/right.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/TetrisView/keysIcon/space.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/TetrisView/keysIcon/up.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/Tetris/Main.class" afterPath="$PROJECT_DIR$/out/production/Tetris/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/TetrisModel/RandomShapeGenerator.class" afterPath="$PROJECT_DIR$/out/production/Tetris/TetrisModel/RandomShapeGenerator.class" />
       <change beforePath="$PROJECT_DIR$/out/production/Tetris/TetrisModel/TetrisModel.class" afterPath="$PROJECT_DIR$/out/production/Tetris/TetrisModel/TetrisModel.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/TetrisModel/TetrisShape.class" afterPath="$PROJECT_DIR$/out/production/Tetris/TetrisModel/TetrisShape.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/TetrisModel/TetrisShape_J.class" afterPath="$PROJECT_DIR$/out/production/Tetris/TetrisModel/TetrisShape_J.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/TetrisModel/TetrisShape_O.class" afterPath="$PROJECT_DIR$/out/production/Tetris/TetrisModel/TetrisShape_O.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/TetrisView/TetrisView.class" afterPath="$PROJECT_DIR$/out/production/Tetris/TetrisView/TetrisView.class" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change beforePath="$PROJECT_DIR$/src/TetrisControler/TetrisControler.java" afterPath="$PROJECT_DIR$/src/TetrisControler/TetrisControler.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisControler/TetrisRunnable.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisControler/TetrisTimeControler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisModel/RandomShapeGenerator.java" afterPath="$PROJECT_DIR$/src/TetrisModel/RandomShapeGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisModel/Score.java" afterPath="$PROJECT_DIR$/src/TetrisModel/Score.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisModel/Speed.java" afterPath="$PROJECT_DIR$/src/TetrisModel/Speed.java" />
       <change beforePath="$PROJECT_DIR$/src/TetrisModel/TetrisModel.java" afterPath="$PROJECT_DIR$/src/TetrisModel/TetrisModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisModel/TetrisShape.java" afterPath="$PROJECT_DIR$/src/TetrisModel/TetrisShape.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisModel/TetrisShapeInterface.java" afterPath="$PROJECT_DIR$/src/TetrisModel/TetrisShapeInterface.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisModel/TetrisShape_J.java" afterPath="$PROJECT_DIR$/src/TetrisModel/TetrisShape_J.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisModel/TetrisShape_O.java" afterPath="$PROJECT_DIR$/src/TetrisModel/TetrisShape_O.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisView/ControlPanel.java" afterPath="$PROJECT_DIR$/src/TetrisView/ControlPanel.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisView/EndGameDialog.java" afterPath="$PROJECT_DIR$/src/TetrisView/EndGameDialog.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisView/InfoWindow.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisView/SettingsWindow.java" afterPath="$PROJECT_DIR$/src/TetrisView/SettingsDialog.java" />
+      <change beforePath="$PROJECT_DIR$/src/TetrisView/TetrisView.java" afterPath="$PROJECT_DIR$/src/TetrisView/TetrisView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +49,11 @@
   <component name="ChangesViewManager" flattened_view="false" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TetrisModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisModel.java">
+      <file leaf-file-name="HelpDialog.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TetrisView/HelpDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="378" column="21" lean-forward="false" selection-start-line="378" selection-start-column="21" selection-end-line="378" selection-end-column="21" />
+            <state relative-caret-position="105">
+              <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,35 +64,97 @@
       <file leaf-file-name="TetrisControler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TetrisControler/TetrisControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="254" column="17" lean-forward="false" selection-start-line="254" selection-start-column="17" selection-end-line="254" selection-end-column="17" />
+            <state relative-caret-position="293">
+              <caret line="222" column="45" lean-forward="false" selection-start-line="222" selection-start-column="45" selection-end-line="222" selection-end-column="45" />
               <folding>
                 <element signature="method#displayNextShapeBoard#0;class#TetrisControler#0" expanded="false" />
-                <element signature="method#newThread#0;class#TetrisControler#0" expanded="false" />
-                <element signature="e#5233#6185#0" expanded="true" />
-                <element signature="e#6184#6185#0" expanded="true" />
-                <element signature="class#BoardFocusListener#0;class#TetrisControler#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingsWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TetrisView/SettingsWindow.java">
+      <file leaf-file-name="TetrisShape_I.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape_I.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+            <state relative-caret-position="79">
+              <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <file leaf-file-name="SettingsDialog.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TetrisView/SettingsDialog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TetrisView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TetrisView/TetrisView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding>
+                <element signature="e#3493#3494#0" expanded="true" />
+                <element signature="e#3536#3537#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TetrisBoardView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TetrisView/TetrisBoardView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TetrisShape_J.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape_J.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TetrisShapeInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShapeInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="72" lean-forward="false" selection-start-line="3" selection-start-column="72" selection-end-line="3" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControlPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TetrisView/ControlPanel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EndGameDialog.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TetrisView/EndGameDialog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="7" column="48" lean-forward="false" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+              <folding>
+                <element signature="e#2243#2244#0" expanded="true" />
+                <element signature="e#2317#2318#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,6 +174,7 @@
       <find>pri</find>
       <find>prin</find>
       <find>thre</find>
+      <find>grab</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,7 +190,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/TetrisController/TetrisController.java" />
-        <option value="$PROJECT_DIR$/src/TetrisView/TetrisView.java" />
         <option value="$PROJECT_DIR$/src/TetricModel/TetrisModel.java" />
         <option value="$PROJECT_DIR$/src/TetrisModel/Block.java" />
         <option value="$PROJECT_DIR$/src/TetrisModel/Shape.java" />
@@ -113,20 +203,28 @@
         <option value="$PROJECT_DIR$/src/TetrisShape/TetrisShape.java" />
         <option value="$PROJECT_DIR$/src/TetrisShape/Block.java" />
         <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape_I.java" />
-        <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape_J.java" />
         <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape_L.java" />
-        <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape_O.java" />
         <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape_S.java" />
         <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape_T.java" />
         <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape_Z.java" />
-        <option value="$PROJECT_DIR$/src/TetrisModel/RandomShapeGenerator.java" />
-        <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape.java" />
         <option value="$PROJECT_DIR$/src/TetrisModel/LineCleaner.java" />
         <option value="$PROJECT_DIR$/src/TetrisView/InfoWindow.java" />
-        <option value="$PROJECT_DIR$/src/TetrisModel/Speed.java" />
-        <option value="$PROJECT_DIR$/src/TetrisView/SettingsWindow.java" />
+        <option value="$PROJECT_DIR$/src/TetrisView/HelpWindow.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/TetrisModel/RandomShapeGenerator.java" />
+        <option value="$PROJECT_DIR$/src/TetrisModel/Score.java" />
+        <option value="$PROJECT_DIR$/src/TetrisModel/Speed.java" />
         <option value="$PROJECT_DIR$/src/TetrisModel/TetrisModel.java" />
+        <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape.java" />
+        <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape_O.java" />
+        <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShape_J.java" />
+        <option value="$PROJECT_DIR$/src/TetrisModel/TetrisShapeInterface.java" />
+        <option value="$PROJECT_DIR$/src/TetrisView/ControlPanel.java" />
+        <option value="$PROJECT_DIR$/src/TetrisView/EndGameDialog.java" />
+        <option value="$PROJECT_DIR$/src/TetrisView/SettingsWindow.java" />
+        <option value="$PROJECT_DIR$/src/TetrisView/HelpDialog.java" />
+        <option value="$PROJECT_DIR$/src/TetrisView/SettingsDialog.java" />
+        <option value="$PROJECT_DIR$/src/TetrisView/TetrisView.java" />
         <option value="$PROJECT_DIR$/src/TetrisControler/TetrisControler.java" />
       </list>
     </option>
@@ -158,9 +256,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -195,7 +292,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -278,7 +376,9 @@
       <workItem from="1525957590607" duration="5305000" />
       <workItem from="1526033381484" duration="3284000" />
       <workItem from="1527158469365" duration="3632000" />
-      <workItem from="1527174143380" duration="6454000" />
+      <workItem from="1527174143380" duration="6505000" />
+      <workItem from="1527235639408" duration="462000" />
+      <workItem from="1527240020959" duration="5757000" />
     </task>
     <task id="LOCAL-00001" summary="dodano klasa Block">
       <created>1524700853208</created>
@@ -336,18 +436,34 @@
       <option name="project" value="LOCAL" />
       <updated>1527166263715</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="nearly working game,">
+      <created>1527181258704</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1527181258704</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32705000" />
+    <option name="totallyTimeSpent" value="38975000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="826" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -359,7 +475,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.48855507" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23462088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24034335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -455,59 +571,24 @@
     <MESSAGE value="class LineCleaner -&gt; used to handle action of removing row" />
     <MESSAGE value="experimenting with thread" />
     <MESSAGE value="working time thread" />
-    <option name="LAST_COMMIT_MESSAGE" value="working time thread" />
+    <MESSAGE value="nearly working game," />
+    <option name="LAST_COMMIT_MESSAGE" value="nearly working game," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/TetrisControler/TetrisControler.java</url>
-          <line>168</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape_Z.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding>
-            <element signature="e#2257#2258#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisShape/TetrisShape_I.java" />
-    <entry file="file://$PROJECT_DIR$/src/TetrisShape/TetrisShape_T.java" />
-    <entry file="file://$PROJECT_DIR$/src/TetrisShape/Block.java" />
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#132#133#0" expanded="false" />
+            <element signature="e#198#199#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -523,7 +604,10 @@
         <state relative-caret-position="210">
           <caret line="14" column="61" lean-forward="false" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="method#levelUp#0;class#TetrisModel#0" expanded="false" />
+            <element signature="method#addToScore#0;class#TetrisModel#0" expanded="false" />
+            <element signature="method#printBoard#0;class#TetrisModel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -534,7 +618,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#132#133#0" expanded="false" />
+            <element signature="e#198#199#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -544,7 +631,10 @@
         <state relative-caret-position="210">
           <caret line="14" column="61" lean-forward="false" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="method#levelUp#0;class#TetrisModel#0" expanded="false" />
+            <element signature="method#addToScore#0;class#TetrisModel#0" expanded="false" />
+            <element signature="method#printBoard#0;class#TetrisModel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -555,7 +645,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#132#133#0" expanded="false" />
+            <element signature="e#198#199#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -565,7 +658,10 @@
         <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="method#levelUp#0;class#TetrisModel#0" expanded="false" />
+            <element signature="method#addToScore#0;class#TetrisModel#0" expanded="false" />
+            <element signature="method#printBoard#0;class#TetrisModel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -574,7 +670,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#132#133#0" expanded="false" />
+            <element signature="e#198#199#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -588,13 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisView/TetrisView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TetrisController/TetrisController.java" />
     <entry file="file://$PROJECT_DIR$/src/TetrisShape/TetrisShape_Z.java" />
     <entry file="file://$PROJECT_DIR$/src/TetrisShape/TetrisShape_T.java" />
@@ -605,22 +697,7 @@
     <entry file="file://$PROJECT_DIR$/src/TetrisShape/TetrisShape_I.java" />
     <entry file="file://$PROJECT_DIR$/src/TetrisShape/TetrisShape.java" />
     <entry file="file://$PROJECT_DIR$/src/TetrisShape/Block.java" />
-    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape_J.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape_L.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape_O.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
@@ -652,18 +729,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape_I.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/concurrent/ScheduledThreadPoolExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisModel/RandomShapeGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+        <state relative-caret-position="150">
+          <caret line="564" column="0" lean-forward="false" selection-start-line="564" selection-start-column="0" selection-end-line="564" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -675,18 +744,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisView/InfoWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        <state relative-caret-position="45">
+          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding>
+            <element signature="e#132#133#0" expanded="false" />
+            <element signature="e#198#199#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisModel/LineCleaner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisModel/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#468#469#0" expanded="false" />
+            <element signature="e#499#500#0" expanded="false" />
+            <element signature="e#526#527#0" expanded="false" />
+            <element signature="e#580#581#0" expanded="false" />
+            <element signature="e#612#613#0" expanded="false" />
+            <element signature="e#646#647#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisModel/RandomShapeGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="86" lean-forward="false" selection-start-line="5" selection-start-column="86" selection-end-line="5" selection-end-column="86" />
+          <folding>
+            <element signature="e#401#402#0" expanded="false" />
+            <element signature="e#449#450#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TetrisModel/Speed.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        <state relative-caret-position="336">
+          <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding>
+            <element signature="e#681#682#0" expanded="false" />
+            <element signature="e#721#722#0" expanded="false" />
+            <element signature="e#747#748#0" expanded="false" />
+            <element signature="e#780#781#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="373" column="4" lean-forward="false" selection-start-line="373" selection-start-column="4" selection-end-line="373" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#levelUp#0;class#TetrisModel#0" expanded="false" />
+            <element signature="method#addToScore#0;class#TetrisModel#0" expanded="false" />
+            <element signature="method#printBoard#0;class#TetrisModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="128" column="42" lean-forward="false" selection-start-line="128" selection-start-column="42" selection-end-line="128" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape_O.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape_I.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape_J.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShapeInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="72" lean-forward="false" selection-start-line="3" selection-start-column="72" selection-end-line="3" selection-end-column="72" />
           <folding />
         </state>
       </provider>
@@ -699,68 +863,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisModel/LineCleaner.java">
+    <entry file="file://$PROJECT_DIR$/src/TetrisView/ControlPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+        <state relative-caret-position="105">
+          <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisShape.java">
+    <entry file="file://$PROJECT_DIR$/src/TetrisView/EndGameDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="92" column="5" lean-forward="false" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+        <state relative-caret-position="75">
+          <caret line="7" column="48" lean-forward="false" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
           <folding>
-            <element signature="e#2257#2258#0" expanded="true" />
+            <element signature="e#2243#2244#0" expanded="true" />
+            <element signature="e#2317#2318#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/TetrisView/HelpDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisView/SettingsWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TetrisModel/TetrisModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="378" column="21" lean-forward="false" selection-start-line="378" selection-start-column="21" selection-end-line="378" selection-end-column="21" />
+          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/concurrent/ScheduledThreadPoolExecutor.java">
+    <entry file="file://$PROJECT_DIR$/src/TetrisView/SettingsDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="564" column="0" lean-forward="false" selection-start-line="564" selection-start-column="0" selection-end-line="564" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisView/TetrisBoardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisView/TetrisView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#3493#3494#0" expanded="true" />
+            <element signature="e#3536#3537#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TetrisControler/TetrisRunnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TetrisControler/TetrisControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="254" column="17" lean-forward="false" selection-start-line="254" selection-start-column="17" selection-end-line="254" selection-end-column="17" />
+        <state relative-caret-position="293">
+          <caret line="222" column="45" lean-forward="false" selection-start-line="222" selection-start-column="45" selection-end-line="222" selection-end-column="45" />
           <folding>
             <element signature="method#displayNextShapeBoard#0;class#TetrisControler#0" expanded="false" />
-            <element signature="method#newThread#0;class#TetrisControler#0" expanded="false" />
-            <element signature="e#5233#6185#0" expanded="true" />
-            <element signature="e#6184#6185#0" expanded="true" />
-            <element signature="class#BoardFocusListener#0;class#TetrisControler#0" expanded="false" />
           </folding>
         </state>
       </provider>

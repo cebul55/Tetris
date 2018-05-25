@@ -1,9 +1,8 @@
 import TetrisControler.TetrisControler;
 
 public class Main {
-
+//main() starts Tetris Game
     public static void main(String[] args) {
-        System.out.println("Tu powstanie Tetris");
         TetrisControler controller = new TetrisControler();
     }
 }

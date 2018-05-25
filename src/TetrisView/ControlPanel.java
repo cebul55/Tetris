@@ -3,6 +3,12 @@ package TetrisView;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
+/**
+ * ControlPanel is panel displayed in view next to TetrisBoard
+ * it shows info about score, level , next shape comming to the board
+ * contains buttons NewGame, Settings, Help
+ */
+
 class ControlPanel extends JPanel{
 
     private JPanel controlPanel = new JPanel();
@@ -11,6 +17,7 @@ class ControlPanel extends JPanel{
     private JLabel scoreField = new JLabel();
     private JButton settingsButton = new JButton("Settings");
     private JButton newGameButton = new JButton("New Game");
+    private JButton helpButton = new JButton("Help");
     //JButton pauseButton;
 
     ControlPanel(TetrisBoardView nextView)
@@ -25,9 +32,12 @@ class ControlPanel extends JPanel{
         controlPanel.add(nextShapeView);
         controlPanel.add(settingsButton);
         controlPanel.add(newGameButton);
+        controlPanel.add(helpButton);
 
         controlPanel.setLayout(new BoxLayout(controlPanel, BoxLayout.Y_AXIS));
 
+        this.add(Box.createHorizontalStrut(10));
+        this.add(Box.createHorizontalStrut(10));
         this.add(controlPanel);
 
         //this.add(scoreField);
@@ -53,7 +63,7 @@ class ControlPanel extends JPanel{
     {
         settingsButton.addActionListener(l);
         newGameButton.addActionListener(l);
+        helpButton.addActionListener(l);
     }
-    //todo Info Panel
-    //todo create time controller
+
 }

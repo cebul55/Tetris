@@ -1,5 +1,12 @@
 package TetrisModel;
 
+/**
+ * Score class used to count score in current Tetris game
+ *
+ * score is stored as Integer, every line that is cleaned is added to score as number of blocks in the line
+ * or in other words the width of tetris board
+ */
+
 class Score {
     private int tetrisScore;
     private final int numberOfBlocksInTheLine;

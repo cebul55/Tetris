@@ -1,5 +1,11 @@
 package TetrisModel;
 
+/**Tetris Shape_O
+ *
+ *      **
+ *      **
+ */
+
  class TetrisShape_O extends TetrisShape {
     TetrisShape_O()
     {

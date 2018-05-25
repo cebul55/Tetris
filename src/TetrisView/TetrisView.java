@@ -20,8 +20,8 @@ public class TetrisView extends JFrame{
     private TetrisBoardView nextShapeView;
     private ControlPanel controlPanel;
     private EndGameDialog endGameDialog;
-    private SettingsWindow settingsWindow;
-    private InfoWindow infoWindow;
+    private SettingsDialog settingsDialog;
+    private HelpDialog helpDialog;
 
     public TetrisView()
     {
@@ -40,9 +40,9 @@ public class TetrisView extends JFrame{
         add(boardView, BorderLayout.CENTER);
         add(controlPanel, BorderLayout.EAST);
 
-        settingsWindow = new SettingsWindow(this);
+        settingsDialog = new SettingsDialog(this);
         endGameDialog = new EndGameDialog(this);
-        infoWindow = new InfoWindow(this);
+        helpDialog = new HelpDialog(this);
 
         this.setVisible(true);
     }
@@ -78,7 +78,7 @@ public class TetrisView extends JFrame{
     }
     public void setSettingsWindowVisible(boolean x)
     {
-        settingsWindow.setVisible(x);
+        settingsDialog.setVisible(x);
     }
     public void changeDisplayedScore(int score)
     {
@@ -107,7 +107,7 @@ public class TetrisView extends JFrame{
 
     public void addComboListener(ActionListener l)
     {
-        settingsWindow.addComboListener(l);
+        settingsDialog.addComboListener(l);
     }
 
     public void grabBoardFocus()
@@ -115,10 +115,19 @@ public class TetrisView extends JFrame{
         boardView.grabFocus();
         //todo try to implement autofocusing after exiting from another window
     }
+    public boolean isBoardFocused()
+    {
+        return boardView.hasFocus();
+    }
 
     public void hideEndGameDialog()
     {
         endGameDialog.setVisible(false);
+    }
+
+    public void setHelDialogVisible()
+    {
+        helpDialog.setVisible(true);
     }
 }
 

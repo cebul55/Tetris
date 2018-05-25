@@ -6,7 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class SettingsWindow extends JDialog{
+/**
+ * SettingsDialog allows to change level , and change background Color to Dark
+ */
+
+public class SettingsDialog extends JDialog {
     private static final int HEIGHT = 300;
     private static final int WIDTH = 200;
 
@@ -16,9 +20,8 @@ public class SettingsWindow extends JDialog{
     private JComboBox<String> levelChoice = new JComboBox<>();
 
 
-    SettingsWindow(JFrame owner)
-    {
-        super(owner, "Settings" , true);
+    SettingsDialog(JFrame owner) {
+        super(owner, "Settings", true);
         this.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
         this.setSize(WIDTH, HEIGHT);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -48,11 +51,9 @@ public class SettingsWindow extends JDialog{
         this.add(settingPanel);
     }
 
-    public void addComboListener(ActionListener l)
-    {
+    public void addComboListener(ActionListener l) {
         darkModeChoice.addActionListener(l);
         levelChoice.addActionListener(l);
     }
 
-}//todo wybierz jakis fajny layout
-
+}

@@ -45,15 +45,14 @@ public class TetrisControler {
 
         this.modelAddShape();
 
-        //experiment adding executorService
         moveDownRunnable = new Runnable() {
 
             @Override
             public void run() {
                 while (true) {
                     try {
-                        TimeUnit.MILLISECONDS.sleep(model.getSpeed());
-                        if (!Thread.interrupted()) {
+                        if (!Thread.interrupted() && view.isBoardFocused()) {
+                            TimeUnit.MILLISECONDS.sleep(model.getSpeed());
                             if (model.moveShapeDown() == 1) {
                                 displayBoard();
                                 displayNextShapeBoard();
@@ -77,7 +76,6 @@ public class TetrisControler {
             }
         };
 
-        //executorService = Executors.newScheduledThreadPool(1);
         executorService = Executors.newSingleThreadScheduledExecutor();
         changeTimeInterval();
 
@@ -105,7 +103,6 @@ public class TetrisControler {
                 c = model.getShapeFromIndex(i).getBlockColor(j);
 
                 view.setBoardColor(x,y,c);
-                //todo disable coloring empty blocks bug
             }
         }
 
@@ -144,14 +141,12 @@ public class TetrisControler {
         view.changeDisplayedLevel(model.getLevel()  );
     }
 
-    private void pauseGame(){
-        //invalid implementation
-        scheduledFuture.cancel(true);
-        executorService.shutdown();
-    }
-
-    private void resumeGame(){
-        scheduledFuture = executorService.schedule(moveDownRunnable, model.getSpeed(), TimeUnit.MILLISECONDS);
+    private void newGame(){
+        view.hideEndGameDialog();
+        model = new TetrisModel();
+        modelAddShape();
+        view.grabBoardFocus();
+        changeTimeInterval();
     }
 
     private void endGame()
@@ -166,43 +161,10 @@ public class TetrisControler {
         {
             scheduledFuture.cancel(true);
         }
-        scheduledFuture = executorService.schedule(moveDownRunnable, model.getSpeed(), TimeUnit.MILLISECONDS);
-        //scheduledFuture = executorService.scheduleAtFixedRate(moveDownRunnable, 3, model.getSpeed(), TimeUnit.MILLISECONDS);
+        scheduledFuture = executorService.scheduleAtFixedRate(moveDownRunnable, 1, model.getSpeed(), TimeUnit.MILLISECONDS);
 
     }
 
-    private void newThread()
-    {
-        timeThread = new Thread(){
-            @Override
-            public void run(){
-                while(true)
-                {
-                    try {
-                        Thread.sleep(model.getSpeed());
-                        if(!Thread.currentThread().isInterrupted()){
-                            if(model.moveShapeDown() == 1)
-                            {
-                                displayBoard();
-                                displayNextShapeBoard();
-                                view.revalidate();
-                                view.repaint();
-                                endGame();
-                                return;
-                            }
-                        }
-                    } catch ( InterruptedException e ) {}
-                    displayBoard();
-                    displayNextShapeBoard();
-                    view.revalidate();
-                    view.repaint();
-                }
-            }
-
-        };
-        timeThread.setPriority(Thread.NORM_PRIORITY);
-        timeThread.start();
-    }
 
     class TetrisKeyListener implements KeyListener {
 
@@ -256,6 +218,17 @@ public class TetrisControler {
                     view.setSettingsWindowVisible(true);
                     break;
                 }
+                case KeyEvent.VK_H:
+                {
+                    view.hideEndGameDialog();
+                    view.setHelDialogVisible();
+                    break;
+                }
+                case KeyEvent.VK_N:
+                {
+                    newGame();
+                    break;
+                }
             }
             displayBoard();
             displayNextShapeBoard();
@@ -280,27 +253,23 @@ public class TetrisControler {
             switch (button.getText() )
             {
                 case "Settings": {
-                    //todo stop executing thread
-//                    try {
-//                        timeThread.join(1000);
-//                    }
-//                    catch (Exception e){}
-
                     view.hideEndGameDialog();
                     view.setSettingsWindowVisible(true);
                     break;
                 }
                 case "New Game": {
-                    view.hideEndGameDialog();
-                    model = new TetrisModel();
-                    modelAddShape();
-                    view.grabBoardFocus();
-                    changeTimeInterval();
+                    newGame();
                     break;
                 }
                 case "Exit Game":
                 {
                     System.exit(0);
+                    break;
+                }
+                case "Help":
+                {
+                    view.hideEndGameDialog();
+                    view.setHelDialogVisible();
                     break;
                 }
             }

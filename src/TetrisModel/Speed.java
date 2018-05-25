@@ -1,8 +1,13 @@
 package TetrisModel;
 
+/**
+ * Speed class is used to count and store level,
+ * speed[] Array contains possible times with TetrisShape is moved down during Game
+ */
+
 public class Speed {
 
-    private long speed[];
+    private final long speed[];
     private int level;
 
     Speed()

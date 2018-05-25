@@ -1,5 +1,12 @@
 package TetrisModel;
 
+/**
+ * TetrisShape_J
+ *   *      *       **      ****
+ *   *      ****    *          *
+ *  **              *
+ */
+
  class TetrisShape_J extends TetrisShape{
     TetrisShape_J(){
         super(  (TetrisModel.getWIDTH()-2)/2 + 1,       0,
