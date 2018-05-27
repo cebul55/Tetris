@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * TetrisModel -class containing data about current tetris board, and shapes currently displayed
+ * TetrisModel class containing data about current tetris board, and shapes currently displayed
  */
 
 public class TetrisModel {
@@ -269,14 +269,20 @@ public class TetrisModel {
     }
 
     /**
-     * Funckja checkIfCanMove sprawdza czy można wykonać dane przesunięcie klocka
+     * Funckja check If Can Move sprawdza czy można wykonać dane przesunięcie klocka
      * zwraca true jeżeli nic nie stoi na przeszkodzie, ani nie wychodzi po za granice
      * false jeżeli nie można wykonać ruchu
+     *
+     * @param direction kierunek ruchu
+     * @return doMove
+     *
      * Dostępne kierunki :
      * 0 - brak ruchu //oraz sprawdzanie czy mozna obrocic
      * 1 - ruch w dół
      * 2 - ruch w lewo
      * 3 - ruch w prawo
+     * 4 - obrot figury
+     *
      */
 
     private boolean checkIfCanMove(int direction)

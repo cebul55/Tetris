@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * abstract class, every Tetris shape in the game inherits after this class
  *        blockSet      przechowuje bloki skladajace sie na aktualny ksztalt tetrominoe
- *        state -> tells about state of shape
+ *        state         tells about state of shape
  *                      0 - vertically, up
  *                      1 - horizontally, right
  *                      2 - vertically, down

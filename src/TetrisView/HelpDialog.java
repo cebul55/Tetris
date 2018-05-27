@@ -13,16 +13,15 @@ public class HelpDialog extends JDialog{
     private static final int WIDTH = 300;
 
     //private ImageIcon imageIcon = new ImageIcon("/Users/bartoszcybulski/Dropbox/Semestr_4/[PROZ.B]Programowanie Zdarzeniowe/Tetris/src/Images/IMG_0145.jpg");
-    private JLabel upKey = new JLabel();
-    private JLabel downKey = new JLabel();
-    private JLabel leftKey = new JLabel();
-    private JLabel rightKey = new JLabel();
-    private JLabel spaceBar = new JLabel();
-    private JLabel escapeKey = new JLabel();
-    private JLabel hKey = new JLabel();
-    private JLabel nKey = new JLabel();
-    private JLabel helpMessage = new JLabel("Help Menu.\n To close, exit window");
-
+    private static JLabel upKey = new JLabel();
+    private static JLabel downKey = new JLabel();
+    private static JLabel leftKey = new JLabel();
+    private static JLabel rightKey = new JLabel();
+    private static JLabel spaceBar = new JLabel();
+    private static JLabel escapeKey = new JLabel();
+    private static JLabel hKey = new JLabel();
+    private static JLabel nKey = new JLabel();
+    private static JLabel helpMessage = new JLabel("Help Menu.\n To close, exit window");
 
     HelpDialog(JFrame owner)
     {
@@ -36,28 +35,39 @@ public class HelpDialog extends JDialog{
         GridLayout gridLayout = new GridLayout(0 , 1);
         gridLayout.setHgap(10);
         panel.setLayout(gridLayout);
-        upKey.setIcon(new ImageIcon("/Users/bartoszcybulski/Dropbox/Semestr_4/[PROZ.B]Programowanie Zdarzeniowe/Tetris/src/TetrisView/keysIcon/up.png"));
+
+        java.net.URL imageURL;
+
+        imageURL = this.getClass().getClassLoader().getResource("keysIcon/up.png");
+        upKey.setIcon(new ImageIcon(imageURL));
         upKey.setText("-> Rotate Tetrominoe");
 
-        downKey.setIcon(new ImageIcon("/Users/bartoszcybulski/Dropbox/Semestr_4/[PROZ.B]Programowanie Zdarzeniowe/Tetris/src/TetrisView/keysIcon/down.png"));
+        imageURL = this.getClass().getClassLoader().getResource("keysIcon/down.png");
+        downKey.setIcon(new ImageIcon(imageURL));
         downKey.setText("-> Move Tetrominoe down");
 
-        leftKey.setIcon(new ImageIcon("/Users/bartoszcybulski/Dropbox/Semestr_4/[PROZ.B]Programowanie Zdarzeniowe/Tetris/src/TetrisView/keysIcon/left.png"));
+        imageURL = this.getClass().getClassLoader().getResource("keysIcon/left.png");
+        leftKey.setIcon(new ImageIcon(imageURL));
         leftKey.setText("-> Move Tetrominoe left");
 
-        rightKey.setIcon(new ImageIcon("/Users/bartoszcybulski/Dropbox/Semestr_4/[PROZ.B]Programowanie Zdarzeniowe/Tetris/src/TetrisView/keysIcon/right.png"));
+        imageURL = this.getClass().getClassLoader().getResource("keysIcon/right.png");
+        rightKey.setIcon(new ImageIcon(imageURL));
         rightKey.setText("-> Move Tetrominoe right");
 
-        spaceBar.setIcon(new ImageIcon("/Users/bartoszcybulski/Dropbox/Semestr_4/[PROZ.B]Programowanie Zdarzeniowe/Tetris/src/TetrisView/keysIcon/space.png"));
+        imageURL = this.getClass().getClassLoader().getResource("keysIcon/space.png");
+        spaceBar.setIcon(new ImageIcon(imageURL));
         spaceBar.setText("-> Drop Tetrominoe");
 
-        escapeKey.setIcon(new ImageIcon("/Users/bartoszcybulski/Dropbox/Semestr_4/[PROZ.B]Programowanie Zdarzeniowe/Tetris/src/TetrisView/keysIcon/esc.png"));
+        imageURL = this.getClass().getClassLoader().getResource("keysIcon/esc.png");
+        escapeKey.setIcon(new ImageIcon(imageURL));
         escapeKey.setText("-> Open Settings");
 
-        hKey.setIcon(new ImageIcon("/Users/bartoszcybulski/Dropbox/Semestr_4/[PROZ.B]Programowanie Zdarzeniowe/Tetris/src/TetrisView/keysIcon/h.png"));
+        imageURL = this.getClass().getClassLoader().getResource("keysIcon/h.png");
+        hKey.setIcon(new ImageIcon(imageURL));
         hKey.setText("-> Open Help");
 
-        nKey.setIcon(new ImageIcon("/Users/bartoszcybulski/Dropbox/Semestr_4/[PROZ.B]Programowanie Zdarzeniowe/Tetris/src/TetrisView/keysIcon/n.png"));
+        imageURL = this.getClass().getClassLoader().getResource("keysIcon/n.png");
+        nKey.setIcon(new ImageIcon(imageURL));
         nKey.setText("-> New Game");
 
         panel.add(upKey);

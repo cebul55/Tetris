@@ -2,10 +2,10 @@ package TetrisModel;
 
 /**
  * TetrisShape-I
- *      ---- -> vertical
+ *      ---- - vertical
  *
  *      I
- *      I    -> horizontal
+ *      I    - horizontal
  *      I
  *      I
  */

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * class LineCleaner
- *     private int[] numberOfBlocksInTheRow -> stores actual number of blocks in the row
+ *     private int[] numberOfBlocksInTheRow - stores actual number of blocks in the row
  *
  *     LineCleaner removes whole lines and moves down everything what is above removed line
  */

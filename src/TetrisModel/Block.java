@@ -2,9 +2,9 @@ package TetrisModel;
 
 /**
  * Block - definiuje pojedynczy blok, z ktorego skladaja sie wszystkie ksztalty Tetrominoes
- * @param positionX     wspolrzedna X
- * @param positionY     wspolrzedna Y
- * @param textureImage  kolor danego bloku oznaczony jako liczba
+ * positionX     wspolrzedna X
+ * positionY     wspolrzedna Y
+ * textureImage  kolor danego bloku oznaczony jako liczba
  */
 
 class Block {
