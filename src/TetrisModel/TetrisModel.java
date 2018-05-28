@@ -127,7 +127,7 @@ public class TetrisModel {
 
     public int addShape(TetrisShape shape)
     {
-        //jako jedyna ta funkcja przyrownuje nextShape do tablicy
+        //przyrownuje nextShape do tablicy
         //0 - > shape can be added to board
         //1 - > can't add shape to the board. Game over
 
@@ -238,8 +238,6 @@ public class TetrisModel {
 
         if( !checkIfCanMove(ROTATE_DIRECTION) )
         {
-            //System.out.println("Error cannot rotate");
-
             currentShape.rotateLeft();
             //cofanie obrotu w razie niepowodzenia
             this.setVisible();
@@ -274,14 +272,14 @@ public class TetrisModel {
      * false jeżeli nie można wykonać ruchu
      *
      * @param direction kierunek ruchu
-     * @return doMove
-     *
-     * Dostępne kierunki :
-     * 0 - brak ruchu //oraz sprawdzanie czy mozna obrocic
+     *     Dostępne kierunki :
+     * 0 - brak ruchu
      * 1 - ruch w dół
      * 2 - ruch w lewo
      * 3 - ruch w prawo
      * 4 - obrot figury
+     *
+     * @return doMove
      *
      */
 

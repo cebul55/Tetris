@@ -11,8 +11,8 @@ import java.util.concurrent.*;
 import javax.swing.*;
 
 /**
- * TetrisControler-klasa sluzaca do komunikacji pomiedzy modelem i widokiem. Rejestruje przekazane przez widok akcje uzytokwnika
- * oraz wysyla do widoku zmiany dokonana przez model.
+ * TetrisControler  klasa sluzaca do komunikacji pomiedzy modelem i widokiem. Rejestruje przekazane przez widok akcje uzytokwnika
+ *                  oraz wysyla do widoku zmiany dokonana przez model.
  */
 
 public class TetrisControler {
@@ -20,8 +20,6 @@ public class TetrisControler {
     private TetrisView view;
 
     private TetrisShape[] twoShapes;
-
-    private Thread timeThread;
 
     private ScheduledFuture<?> scheduledFuture;
     private ScheduledExecutorService executorService;
@@ -51,7 +49,7 @@ public class TetrisControler {
             public void run() {
                 while (true) {
                     try {
-                        if (!Thread.interrupted() && view.isBoardFocused()) {
+                        if (!Thread.interrupted() && view.isBoardFocused() ) {
                             TimeUnit.MILLISECONDS.sleep(model.getSpeed());
                             if (model.moveShapeDown() == 1) {
                                 displayBoard();

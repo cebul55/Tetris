@@ -56,10 +56,12 @@ public class TetrisView extends JFrame{
     {
         boardView.setDefaultColorOfBoard(y,x);
     }
+
     public void setNextShapeViewColor(int x, int y , int c)
     {
         nextShapeView.setColorOfBoard(x,y,c);
     }
+
     public void setNextShapeViewWhite(int y, int x)
     {
         nextShapeView.setDefaultColorOfBoard(y,x);
@@ -76,10 +78,12 @@ public class TetrisView extends JFrame{
     {
         boardView.setDefaultColor(c);
     }
+
     public void setSettingsWindowVisible(boolean x)
     {
         settingsDialog.setVisible(x);
     }
+
     public void changeDisplayedScore(int score)
     {
         controlPanel.changeScore(score);
@@ -89,6 +93,7 @@ public class TetrisView extends JFrame{
     {
         controlPanel.changeLevel(level);
     }
+
     public void addTetrisKeyListener(KeyListener l)
     {
         boardView.addKeyListener(l);
